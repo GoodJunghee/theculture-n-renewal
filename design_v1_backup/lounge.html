@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lounge | The Culture N · 더컬쳐앤라운지</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="sub.css">
+</head>
+<body>
+
+<header class="header scrolled" id="header">
+    <nav class="nav">
+        <a href="index.html" class="logo">The Culture <span class="logo-mark">N</span></a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="lounge.html" class="active">Lounge</a></li>
+            <li><a href="services.html#artists">Artists</a></li>
+            <li><a href="services.html#portfolio">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="nav-cta">대관 문의</a>
+        <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    </nav>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">The Culture N Lounge</p>
+        <h1 class="display page-title">음악·예술·책이 흐르는<br><em>도심 속 힐링 공간</em></h1>
+        <p class="page-lead">
+            강남 · 종각 · 마곡 — 서울 3개 지점에서 만나는 더컬쳐앤라운지.<br>
+            소규모 연주회부터 비즈니스 강연, 프라이빗 파티까지 모든 행사를 품습니다.
+        </p>
+    </div>
+</section>
+
+<!-- INTRO -->
+<section class="lounge-intro">
+    <div class="container">
+        <div class="intro-grid">
+            <div>
+                <p class="eyebrow">What is The Culture N Lounge</p>
+                <h2 class="section-title">단순한 카페가 아닌,<br>완성된 <em>컬쳐 공간</em>입니다</h2>
+            </div>
+            <div class="intro-text">
+                <p>
+                    100권 이상의 출판 도서가 비치된 쇼룸,
+                    하프·더블베이스·가야금·해금 등 <strong>실제 연주 가능한 악기 체험존</strong>,
+                    그리고 청담 럭셔리 인테리어가 어우러진 복합 문화 공간입니다.
+                </p>
+                <p>
+                    강연회·소규모 연주회·생일파티·기업 행사·VIP 미팅까지 —
+                    당신의 모임을 한 차원 다른 분위기로 끌어올립니다.
+                </p>
+
+                <div class="intro-stats">
+                    <div><strong>3</strong><span>지점 운영<br>강남·종각·마곡</span></div>
+                    <div><strong>100<sup>+</sup></strong><span>비치 도서</span></div>
+                    <div><strong>4</strong><span>체험 가능 악기</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BRANCHES -->
+<section class="branches">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Our Locations</p>
+            <h2 class="section-title">3개의 라운지,<br>3개의 분위기</h2>
+        </div>
+
+        <div class="branch-tabs" id="branchTabs">
+            <button class="branch-tab active" data-branch="gangnam">강남<small>Gangnam · Flagship</small></button>
+            <button class="branch-tab" data-branch="jonggak">종각<small>Jonggak · Library</small></button>
+            <button class="branch-tab" data-branch="magok">마곡<small>Magok · Studio</small></button>
+        </div>
+
+        <!-- 강남 -->
+        <div class="branch-display branch-card active" data-branch-card="gangnam">
+            <div class="branch-img branch-gangnam"></div>
+            <div class="branch-info">
+                <span class="service-tag">Flagship Store</span>
+                <h3>강남 라운지</h3>
+                <p class="branch-tagline">청담 럭셔리 컨셉 · 시그니처 공간</p>
+
+                <ul class="branch-meta">
+                    <li><strong>위치</strong><span>서울 강남구 청담동<br>강남구청역 도보 5분</span></li>
+                    <li><strong>면적</strong><span>약 165㎡ (50평)<br>지하 1층 단독 공간</span></li>
+                    <li><strong>수용</strong><span>강연 60명 / 콘서트 40명<br>프라이빗 30명</span></li>
+                    <li><strong>운영</strong><span>화-일 14:00~22:00<br>월요일 휴무</span></li>
+                    <li><strong>대관</strong><span>3시간 단위 · 시간당 견적</span></li>
+                </ul>
+
+                <p class="eyebrow" style="margin:24px 0 12px">시설 & 특징</p>
+                <div class="branch-features">
+                    <div class="feature-item">🎻 라이브 악기존</div>
+                    <div class="feature-item">📚 100권 도서 쇼룸</div>
+                    <div class="feature-item">🎥 영상 촬영 장비</div>
+                    <div class="feature-item">🎤 음향 풀세트</div>
+                    <div class="feature-item">🍷 케이터링 가능</div>
+                    <div class="feature-item">🅿️ 발렛 파킹</div>
+                </div>
+
+                <a href="contact.html?service=lounge&branch=gangnam" class="btn btn-dark btn-arrow">강남점 대관 문의</a>
+            </div>
+        </div>
+
+        <!-- 종각 -->
+        <div class="branch-display branch-card" data-branch-card="jonggak" style="display:none">
+            <div class="branch-img branch-jonggak"></div>
+            <div class="branch-info">
+                <span class="service-tag">Library Lounge</span>
+                <h3>종각 라운지</h3>
+                <p class="branch-tagline">도심 속 라이브러리 · 모던 클래식</p>
+
+                <ul class="branch-meta">
+                    <li><strong>위치</strong><span>서울 종로구 종각역 인근<br>종각역 도보 3분</span></li>
+                    <li><strong>면적</strong><span>약 99㎡ (30평)<br>지상 2층</span></li>
+                    <li><strong>수용</strong><span>강연 30명 / 북토크 20명<br>미팅 12명</span></li>
+                    <li><strong>운영</strong><span>월-금 11:00~22:00<br>주말 12:00~21:00</span></li>
+                    <li><strong>대관</strong><span>2시간 단위 · 시간당 견적</span></li>
+                </ul>
+
+                <p class="eyebrow" style="margin:24px 0 12px">시설 & 특징</p>
+                <div class="branch-features">
+                    <div class="feature-item">📚 출판 도서 라이브러리</div>
+                    <div class="feature-item">☕ 핸드드립 커피</div>
+                    <div class="feature-item">📝 북토크 무대</div>
+                    <div class="feature-item">💼 비즈니스 미팅룸</div>
+                    <div class="feature-item">📷 사진 스팟</div>
+                    <div class="feature-item">🚇 종각역 인접</div>
+                </div>
+
+                <a href="contact.html?service=lounge&branch=jonggak" class="btn btn-dark btn-arrow">종각점 대관 문의</a>
+            </div>
+        </div>
+
+        <!-- 마곡 -->
+        <div class="branch-display branch-card" data-branch-card="magok" style="display:none">
+            <div class="branch-img branch-magok"></div>
+            <div class="branch-info">
+                <span class="service-tag">Creative Studio</span>
+                <h3>마곡 라운지</h3>
+                <p class="branch-tagline">크리에이티브 스튜디오 · 촬영·녹음 가능</p>
+
+                <ul class="branch-meta">
+                    <li><strong>위치</strong><span>서울 강서구 마곡동<br>마곡나루역 인접</span></li>
+                    <li><strong>면적</strong><span>약 132㎡ (40평)<br>지상 1층</span></li>
+                    <li><strong>수용</strong><span>촬영 20명 / 워크숍 25명<br>파티 30명</span></li>
+                    <li><strong>운영</strong><span>예약제<br>24시간 운영 가능</span></li>
+                    <li><strong>대관</strong><span>4시간 / 8시간 / 일 단위</span></li>
+                </ul>
+
+                <p class="eyebrow" style="margin:24px 0 12px">시설 & 특징</p>
+                <div class="branch-features">
+                    <div class="feature-item">🎬 영상 촬영 스튜디오</div>
+                    <div class="feature-item">🎙️ 녹음 부스</div>
+                    <div class="feature-item">💡 조명 풀세트</div>
+                    <div class="feature-item">🖥️ 편집실</div>
+                    <div class="feature-item">🅿️ 전용 주차</div>
+                    <div class="feature-item">🎵 앨범 제작 연계</div>
+                </div>
+
+                <a href="contact.html?service=lounge&branch=magok" class="btn btn-dark btn-arrow">마곡점 대관 문의</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- USE CASES -->
+<section class="usecases section-dark">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Use Cases</p>
+            <h2 class="section-title">이런 분들이<br>찾아오십니다</h2>
+        </div>
+
+        <div class="usecase-grid">
+            <div class="uc-card">
+                <div class="uc-icon">🎤</div>
+                <h3>강연·세미나</h3>
+                <p>1인 기업가, 작가, 강연자의 프라이빗 강연. 30~60명 규모의 친밀한 분위기.</p>
+                <span class="uc-tag">평균 4시간</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-icon">🎻</div>
+                <h3>소규모 연주회</h3>
+                <p>클래식·재즈·국악 연주자의 살롱 콘서트. 무대-관객 경계 없는 친밀함.</p>
+                <span class="uc-tag">평균 3시간</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-icon">🎂</div>
+                <h3>생일·기념파티</h3>
+                <p>특별한 날을 위한 럭셔리 프라이빗 파티. 케이터링 + 라이브 음악.</p>
+                <span class="uc-tag">평균 5시간</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-icon">📖</div>
+                <h3>북토크·출간기념회</h3>
+                <p>도서 출간 기념회, 북토크, 작가와의 만남. 100권 도서 라이브러리 활용.</p>
+                <span class="uc-tag">평균 3시간</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-icon">🎬</div>
+                <h3>영상 촬영</h3>
+                <p>유튜브 콘텐츠, 광고, 인터뷰 촬영. 마곡점 전문 스튜디오.</p>
+                <span class="uc-tag">시간당 견적</span>
+            </div>
+            <div class="uc-card">
+                <div class="uc-icon">💼</div>
+                <h3>비즈니스 미팅</h3>
+                <p>VIP 미팅, 셀프 발표, 투자 미팅. 격이 다른 분위기의 비즈니스.</p>
+                <span class="uc-tag">평균 2시간</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section class="lounge-process">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Booking Process</p>
+            <h2 class="section-title">대관, 이렇게 진행됩니다</h2>
+        </div>
+
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-num">01</div>
+                <h3>문의</h3>
+                <p>카카오톡·전화·웹폼으로 행사 정보 전달<br><small>(지점·일시·인원·목적)</small></p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">02</div>
+                <h3>견적 & 예약</h3>
+                <p>맞춤 견적과 가능 시간 제안<br><small>(24시간 내 회신)</small></p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">03</div>
+                <h3>사전 답사</h3>
+                <p>현장 확인 및 세팅 협의<br><small>(원격 가상투어 가능)</small></p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">04</div>
+                <h3>당일 운영</h3>
+                <p>전담 매니저 배치 + 사후 정리<br><small>(추가 인력 옵션)</small></p>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-top:60px">
+            <p style="color:var(--gray); margin-bottom:24px">📞 빠른 견적이 필요하신가요? 카카오톡으로 문의 시 30분 내 회신드립니다.</p>
+            <a href="http://pf.kakao.com/_QkZhd" class="btn btn-primary btn-arrow">카카오톡으로 빠르게 견적 받기</a>
+        </div>
+    </div>
+</section>
+
+<!-- INSTAGRAM FEED -->
+<section class="ig-feed section-dark">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Instagram</p>
+            <h2 class="section-title">@the_culture_n_lounge</h2>
+        </div>
+
+        <div class="ig-grid">
+            <div class="ig-item ig1"></div>
+            <div class="ig-item ig2"></div>
+            <div class="ig-item ig3"></div>
+            <div class="ig-item ig4"></div>
+            <div class="ig-item ig5"></div>
+            <div class="ig-item ig6"></div>
+        </div>
+
+        <div style="text-align:center; margin-top:40px">
+            <a href="https://instagram.com/the_culture_n_lounge" class="btn btn-outline">인스타그램 팔로우 →</a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+    <div class="container">
+        <h2 class="cta-title">당신의 모임,<br><em>특별한 공간</em>에서 시작하세요</h2>
+        <p class="cta-sub">지점 · 일시 · 인원만 알려주시면 빠르게 견적을 드립니다.</p>
+        <div class="cta-buttons">
+            <a href="tel:02-734-3827" class="cta-btn">
+                <span class="cta-icon">📞</span>
+                <div><small>전화 문의</small><strong>02-734-3827</strong></div>
+            </a>
+            <a href="http://pf.kakao.com/_QkZhd" class="cta-btn cta-btn-kakao">
+                <span class="cta-icon">💬</span>
+                <div><small>30분 내 회신</small><strong>카카오톡 견적</strong></div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">The Culture <span class="logo-mark">N</span></a>
+                <p>LSJ Company · 주식회사 더컬쳐앤<br>출판 · 공연 · 문화공간을 잇는<br>All in One 컬쳐 컴퍼니</p>
+                <div class="social-icons"><a href="#">IG</a><a href="#">YT</a><a href="#">BL</a><a href="#">KK</a></div>
+            </div>
+            <div class="footer-col">
+                <h4>Lounge</h4>
+                <ul>
+                    <li><a href="#">강남점</a></li>
+                    <li><a href="#">종각점</a></li>
+                    <li><a href="#">마곡점</a></li>
+                    <li><a href="contact.html">대관 문의</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html#publishing">도서출판</a></li>
+                    <li><a href="services.html#music">앨범·공연</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>02-734-3827</li>
+                    <li>dreamwithessmarketing@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2026 LSJ Company · All rights reserved.</p>
+            <p>개인정보처리방침 · 이용약관</p>
+        </div>
+    </div>
+</footer>
+
+<a href="http://pf.kakao.com/_QkZhd" class="fab-kakao">💬</a>
+
+<style>
+.lounge-intro {
+    padding: 100px 0;
+    background: var(--ivory);
+}
+.intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 80px;
+    align-items: start;
+}
+.intro-grid h2 em {
+    font-style: normal; font-weight: 700; color: var(--wine);
+}
+.intro-text p {
+    font-size: 17px; line-height: 1.9;
+    color: var(--charcoal); margin-bottom: 20px;
+}
+.intro-text strong { color: var(--wine); }
+.intro-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; margin-top: 40px;
+    padding-top: 40px; border-top: 1px solid rgba(14, 27, 44, 0.1);
+}
+.intro-stats div { text-align: center; }
+.intro-stats strong {
+    font-family: var(--font-display);
+    font-size: 48px; color: var(--gold);
+    display: block; line-height: 1; margin-bottom: 8px;
+    font-weight: 600;
+}
+.intro-stats sup { font-size: 0.5em; color: var(--wine); }
+.intro-stats span {
+    font-size: 13px; color: var(--gray); line-height: 1.5;
+}
+
+.usecases {
+    padding: 100px 0;
+}
+.usecase-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.uc-card {
+    padding: 36px 30px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.uc-card:hover {
+    background: rgba(201, 169, 110, 0.08);
+    border-color: var(--gold); transform: translateY(-6px);
+}
+.uc-icon { font-size: 36px; margin-bottom: 20px; }
+.uc-card h3 {
+    font-family: var(--font-display);
+    font-size: 24px; color: var(--ivory);
+    margin-bottom: 12px; font-weight: 500;
+}
+.uc-card p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7; margin-bottom: 16px;
+}
+.uc-tag {
+    display: inline-block;
+    font-size: 11px; letter-spacing: 0.15em;
+    color: var(--gold); text-transform: uppercase;
+    background: rgba(201, 169, 110, 0.1);
+    padding: 4px 12px; border-radius: 100px;
+}
+
+.lounge-process {
+    padding: 100px 0;
+    background: var(--ivory);
+}
+
+.ig-feed {
+    padding: 100px 0;
+}
+.ig-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+}
+.ig-item {
+    aspect-ratio: 1;
+    border-radius: var(--radius);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+.ig-item:hover { transform: scale(0.96); opacity: 0.85; }
+.ig1 { background: linear-gradient(135deg, #722F37, #C9A96E); }
+.ig2 { background: linear-gradient(135deg, #0E1B2C, #722F37); }
+.ig3 { background: linear-gradient(135deg, #C9A96E, #0E1B2C); }
+.ig4 { background: linear-gradient(135deg, #2A2A2A, #C9A96E); }
+.ig5 { background: linear-gradient(135deg, #1a3a4a, #722F37); }
+.ig6 { background: linear-gradient(135deg, #C9A96E, #F8F4EC); }
+
+@media (max-width: 968px) {
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .usecase-grid { grid-template-columns: 1fr 1fr; }
+    .ig-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+    .usecase-grid { grid-template-columns: 1fr; }
+    .intro-stats { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+<script>
+const header = document.getElementById('header');
+header.classList.add('scrolled');
+window.addEventListener('scroll', () => header.classList.add('scrolled'));
+
+document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('navMenu').classList.toggle('open');
+});
+
+// Branch tabs
+document.querySelectorAll('.branch-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.branch-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelectorAll('.branch-card').forEach(c => c.style.display = 'none');
+        document.querySelector(`[data-branch-card="${tab.dataset.branch}"]`).style.display = 'grid';
+    });
+});
+
+const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('reveal'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.section-title, .uc-card, .ig-item').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

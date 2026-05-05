@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | The Culture N · 더컬쳐앤</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="sub.css">
+</head>
+<body>
+
+<header class="header scrolled" id="header">
+    <nav class="nav">
+        <a href="index.html" class="logo">The Culture <span class="logo-mark">N</span></a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="lounge.html">Lounge</a></li>
+            <li><a href="services.html#artists">Artists</a></li>
+            <li><a href="services.html#portfolio">Portfolio</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <a href="http://pf.kakao.com/_QkZhd" class="nav-cta">카카오톡</a>
+        <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    </nav>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="container">
+        <p class="eyebrow">Contact</p>
+        <h1 class="display page-title"><em>무료 상담</em>으로<br>당신의 다음 챕터를 시작합니다</h1>
+        <p class="page-lead">
+            출판·공연·라운지 대관·아티스트 매니지먼트 — 무엇이든 편하게 문의해주세요.<br>
+            평일 24시간 내, 카카오톡은 30분 내 회신드립니다.
+        </p>
+    </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+
+            <!-- LEFT: Info -->
+            <div class="contact-info">
+                <div class="info-card">
+                    <p class="eyebrow" style="color:var(--gold)">Get in Touch</p>
+                    <h3>언제든<br>편하게 연락주세요</h3>
+                    <p>당신의 이야기를 듣고, 가장 적합한 솔루션을 무료로 제안드립니다.</p>
+
+                    <ul class="info-list">
+                        <li>
+                            <div class="info-icon">📞</div>
+                            <div>
+                                <small>전화 상담</small>
+                                <strong>02-734-3827</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-icon">💬</div>
+                            <div>
+                                <small>카카오톡 (24시간)</small>
+                                <strong>@더컬쳐앤</strong>
+                                <a href="http://pf.kakao.com/_QkZhd" style="color:var(--gold); font-size:13px; display:block; margin-top:6px">바로 연결 →</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-icon">✉️</div>
+                            <div>
+                                <small>이메일</small>
+                                <strong style="font-size:14px">dreamwithessmarketing<br>@gmail.com</strong>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-icon">📷</div>
+                            <div>
+                                <small>인스타그램</small>
+                                <strong>@lsjcompany1</strong>
+                                <a href="https://instagram.com/the_culture_n_lounge" style="color:var(--gold); font-size:12px; display:block; margin-top:4px">@the_culture_n_lounge →</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-icon">📍</div>
+                            <div>
+                                <small>오프라인 라운지</small>
+                                <strong style="font-size:14px">강남 · 종각 · 마곡</strong>
+                                <a href="lounge.html" style="color:var(--gold); font-size:12px; display:block; margin-top:4px">지점 보기 →</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="response-time">
+                    <div class="rt-item"><strong>30분</strong><small>카카오톡 평균 회신</small></div>
+                    <div class="rt-item"><strong>24시간</strong><small>이메일 평균 회신</small></div>
+                    <div class="rt-item"><strong>무료</strong><small>최초 상담 비용</small></div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Form -->
+            <div class="contact-form">
+                <h2>견적 & 상담 신청</h2>
+                <p class="form-sub">필요한 정보를 입력해주시면 담당자가 24시간 내에 연락드립니다.</p>
+
+                <form id="contactForm" onsubmit="event.preventDefault(); submitForm();">
+
+                    <div class="form-group full">
+                        <label>관심있는 서비스 <span class="required">*</span> <small style="color:var(--gray);font-weight:400">(중복 선택)</small></label>
+                        <div class="service-checkboxes">
+                            <div class="svc-check">
+                                <input type="checkbox" id="svc1" value="publishing">
+                                <label for="svc1">📚 도서출판</label>
+                            </div>
+                            <div class="svc-check">
+                                <input type="checkbox" id="svc2" value="music">
+                                <label for="svc2">🎵 앨범·공연</label>
+                            </div>
+                            <div class="svc-check">
+                                <input type="checkbox" id="svc3" value="lounge">
+                                <label for="svc3">🏛️ 라운지 대관</label>
+                            </div>
+                            <div class="svc-check">
+                                <input type="checkbox" id="svc4" value="artist">
+                                <label for="svc4">🎤 아티스트</label>
+                            </div>
+                            <div class="svc-check">
+                                <input type="checkbox" id="svc5" value="wellness">
+                                <label for="svc5">🌿 의료관광</label>
+                            </div>
+                            <div class="svc-check">
+                                <input type="checkbox" id="svc6" value="jewelry">
+                                <label for="svc6">💎 주얼리</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">성함 <span class="required">*</span></label>
+                            <input type="text" id="name" placeholder="홍길동" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">연락처 <span class="required">*</span></label>
+                            <input type="tel" id="phone" placeholder="010-0000-0000" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="email">이메일</label>
+                            <input type="email" id="email" placeholder="example@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">소속 / 직책</label>
+                            <input type="text" id="company" placeholder="회사명 · 직책 (선택)">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="budget">예산 규모</label>
+                            <select id="budget">
+                                <option value="">선택해주세요</option>
+                                <option>~ 500만원</option>
+                                <option>500만원 ~ 1,000만원</option>
+                                <option>1,000만원 ~ 3,000만원</option>
+                                <option>3,000만원 이상</option>
+                                <option>상담 후 결정</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="schedule">희망 시기</label>
+                            <select id="schedule">
+                                <option value="">선택해주세요</option>
+                                <option>1개월 이내</option>
+                                <option>1~3개월</option>
+                                <option>3~6개월</option>
+                                <option>6개월 이상</option>
+                                <option>미정</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="message">문의 내용 <span class="required">*</span></label>
+                        <textarea id="message" placeholder="원하시는 서비스 내용, 일정, 규모, 요구사항 등을 자유롭게 작성해주세요." required></textarea>
+                    </div>
+
+                    <div class="form-group full">
+                        <label class="check-label">
+                            <input type="checkbox" required>
+                            <span>개인정보 수집·이용에 동의합니다. <a href="#" style="color:var(--wine); text-decoration:underline">자세히 보기</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="form-submit">상담 신청하기</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- LOCATIONS -->
+<section class="map-section">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">Visit Us</p>
+            <h2 class="section-title">3개의 라운지에서<br>직접 만나요</h2>
+        </div>
+
+        <div class="map-grid">
+            <div class="map-card">
+                <div class="map-placeholder branch-gangnam">강남 라운지</div>
+                <span class="tag">Flagship</span>
+                <h4>강남점</h4>
+                <p>서울 강남구 청담동<br>강남구청역 도보 5분</p>
+                <a href="lounge.html" class="btn btn-dark btn-arrow" style="font-size:13px; padding:10px 20px">자세히 보기</a>
+            </div>
+
+            <div class="map-card">
+                <div class="map-placeholder branch-jonggak">종각 라운지</div>
+                <span class="tag">Library</span>
+                <h4>종각점</h4>
+                <p>서울 종로구 종각역 인근<br>종각역 도보 3분</p>
+                <a href="lounge.html" class="btn btn-dark btn-arrow" style="font-size:13px; padding:10px 20px">자세히 보기</a>
+            </div>
+
+            <div class="map-card">
+                <div class="map-placeholder branch-magok">마곡 라운지</div>
+                <span class="tag">Studio</span>
+                <h4>마곡점</h4>
+                <p>서울 강서구 마곡동<br>마곡나루역 인접</p>
+                <a href="lounge.html" class="btn btn-dark btn-arrow" style="font-size:13px; padding:10px 20px">자세히 보기</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq section-dark">
+    <div class="container">
+        <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2 class="section-title">자주 묻는 질문</h2>
+        </div>
+
+        <div class="faq-list">
+            <details class="faq-item" open>
+                <summary>책 한 권 출판하는 데 비용이 얼마나 드나요?</summary>
+                <p>분야와 페이지 수, 마케팅 범위에 따라 다릅니다. 자가출판 기본 패키지는 500만원부터, 풀 컨설팅·전국 서점 유통·마케팅이 포함된 프리미엄은 2,000만원 이상까지 다양합니다. 무료 상담 시 정확한 견적을 안내드립니다.</p>
+            </details>
+            <details class="faq-item">
+                <summary>라운지 대관 비용은 어떻게 되나요?</summary>
+                <p>지점·시간대·인원·기자재 사용 여부에 따라 결정됩니다. 강남점 시그니처 공간은 시간당 25만원부터, 종각·마곡점은 더 합리적인 가격으로 운영됩니다. 카카오톡으로 문의 시 30분 내 견적을 드립니다.</p>
+            </details>
+            <details class="faq-item">
+                <summary>앨범 제작은 비전공자도 가능한가요?</summary>
+                <p>네, 가능합니다. 작곡·작사부터 보컬 트레이닝까지 처음부터 함께합니다. 작곡비만 수천만원대인 일반 시장 대비 부담을 크게 줄였으며, 뮤직비디오와 공연 진행까지 All in One으로 제공됩니다.</p>
+            </details>
+            <details class="faq-item">
+                <summary>의료관광 패키지는 어떻게 진행되나요?</summary>
+                <p>The Wellness N은 외국인 고객 대상 프리미엄 의료관광 프로그램입니다. 강남 의료기관 매칭, 다국어 코디네이터, 5성급 호텔 패키지, 라운지 문화 체험을 제공합니다. 영어/중국어/일본어 지원 가능합니다.</p>
+            </details>
+            <details class="faq-item">
+                <summary>상담 비용은 따로 발생하나요?</summary>
+                <p>최초 상담은 모두 <strong>무료</strong>입니다. 카카오톡, 전화, 이메일, 또는 라운지 방문 상담 모두 비용 부담 없이 진행됩니다.</p>
+            </details>
+            <details class="faq-item">
+                <summary>회신은 얼마나 빠른가요?</summary>
+                <p>카카오톡은 평균 30분 내, 이메일과 웹폼은 영업일 기준 24시간 내 회신을 원칙으로 합니다. 긴급 건은 02-734-3827로 직접 전화주세요.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">The Culture <span class="logo-mark">N</span></a>
+                <p>LSJ Company · 주식회사 더컬쳐앤<br>출판 · 공연 · 문화공간을 잇는<br>All in One 컬쳐 컴퍼니</p>
+                <div class="social-icons"><a href="#">IG</a><a href="#">YT</a><a href="#">BL</a><a href="#">KK</a></div>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html#publishing">도서출판</a></li>
+                    <li><a href="services.html#music">앨범·공연</a></li>
+                    <li><a href="lounge.html">라운지 대관</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.html#ceo">CEO</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>02-734-3827</li>
+                    <li>dreamwithessmarketing@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2026 LSJ Company · All rights reserved.</p>
+            <p>개인정보처리방침 · 이용약관</p>
+        </div>
+    </div>
+</footer>
+
+<a href="http://pf.kakao.com/_QkZhd" class="fab-kakao">💬</a>
+
+<style>
+.contact-section {
+    background: var(--ivory);
+}
+
+.response-time {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+}
+.rt-item {
+    background: var(--white);
+    padding: 24px 16px;
+    text-align: center;
+    border-radius: var(--radius);
+    border-bottom: 3px solid var(--gold);
+}
+.rt-item strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--navy);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+.rt-item small {
+    font-size: 12px;
+    color: var(--gray);
+}
+
+.check-label {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 400 !important;
+    color: var(--charcoal) !important;
+}
+.check-label input { width: 18px; height: 18px; accent-color: var(--gold); }
+.check-label span { font-size: 14px; }
+.check-label a { font-weight: 500; }
+
+.faq {
+    padding: 100px 0;
+}
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.faq-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    transition: all 0.3s;
+    overflow: hidden;
+}
+.faq-item[open] {
+    background: rgba(201, 169, 110, 0.08);
+    border-color: var(--gold);
+}
+.faq-item summary {
+    padding: 24px 32px;
+    cursor: pointer;
+    font-size: 17px;
+    color: var(--ivory);
+    font-weight: 500;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-display);
+}
+.faq-item summary::after {
+    content: '+';
+    font-size: 24px;
+    color: var(--gold);
+    transition: transform 0.3s;
+    font-weight: 300;
+}
+.faq-item[open] summary::after {
+    transform: rotate(45deg);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item p {
+    padding: 0 32px 24px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.75);
+}
+.faq-item p strong {
+    color: var(--gold);
+}
+</style>
+
+<script>
+const header = document.getElementById('header');
+header.classList.add('scrolled');
+window.addEventListener('scroll', () => header.classList.add('scrolled'));
+
+document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('navMenu').classList.toggle('open');
+});
+
+// URL Param 자동 체크
+const params = new URLSearchParams(window.location.search);
+if (params.has('service')) {
+    const svc = params.get('service');
+    const map = { publishing: 'svc1', music: 'svc2', lounge: 'svc3', artist: 'svc4', wellness: 'svc5', jewelry: 'svc6' };
+    const id = map[svc];
+    if (id) document.getElementById(id).checked = true;
+}
+
+function submitForm() {
+    alert('상담 신청이 접수되었습니다.\n\n담당자가 24시간 내에 연락드릴 예정입니다.\n빠른 답변이 필요하시면 카카오톡(@더컬쳐앤)으로 문의해주세요.');
+    document.getElementById('contactForm').reset();
+}
+
+const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('reveal'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.section-title, .map-card, .rt-item').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

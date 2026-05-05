@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artists & Music · 더컬쳐앤 The Culture N</title>
+<meta name="description" content="키조이스 · 비트리플 · 사진작가 · 드로잉 작가. 다양한 장르의 아티스트 매니지먼트와 앨범 제작·공연 기획 All in One 서비스.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/sub.css">
+<style>
+.artist-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 60px;
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+
+.artist-feature .photo {
+    aspect-ratio: 4/5;
+    min-height: 480px;
+    position: relative;
+}
+
+.artist-feature .photo .symbol {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 240px;
+    color: rgba(212, 162, 76, 0.18);
+}
+
+.artist-feature .body {
+    padding: 56px 56px 56px 0;
+}
+
+.artist-grid-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.artist-card-mini {
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--t-fast) var(--ease);
+}
+
+.artist-card-mini:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    border-color: var(--gold);
+}
+
+.artist-card-mini .ph {
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+
+.artist-card-mini .ph .sym {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 800;
+}
+
+.artist-card-mini .info {
+    padding: 32px;
+}
+
+.artist-card-mini .genre {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 12px;
+    font-weight: 600;
+    display: block;
+}
+
+.artist-card-mini h3 {
+    font-weight: 800;
+    font-size: 24px;
+    color: var(--black);
+    margin-bottom: 8px;
+    letter-spacing: -0.015em;
+}
+
+.artist-card-mini h3 small {
+    display: block;
+    font-size: 12px;
+    color: var(--gray);
+    font-family: var(--f-mono);
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+.artist-card-mini p {
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.7;
+}
+
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding-top: 32px;
+    border-top: 1px solid var(--gray-line);
+    margin-top: 32px;
+}
+
+.member {
+    text-align: center;
+    padding: 20px;
+    background: var(--gray-soft);
+    border-radius: var(--radius);
+}
+
+.member strong {
+    display: block;
+    font-weight: 800;
+    font-size: 17px;
+    color: var(--black);
+    margin-bottom: 4px;
+}
+
+.member small {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--gold-deep);
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+    .artist-feature {
+        grid-template-columns: 1fr;
+    }
+    .artist-feature .body { padding: 32px; }
+    .artist-feature .photo { min-height: 320px; }
+    .artist-grid-row { grid-template-columns: 1fr; }
+    .member-grid { grid-template-columns: 1fr; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.png" alt="The Culture N">
+            <span>The Culture <strong style="color:var(--gold-bright)">N</strong></span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="about.html" class="nav-link">CEO</a></li>
+            <li><a href="publishing.html" class="nav-link">Publishing</a></li>
+            <li><a href="lounge.html" class="nav-link">Lounge</a></li>
+            <li><a href="artists.html" class="nav-link active">Artists</a></li>
+            <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="nav-cta">매니지먼트 문의 →</a>
+        <div class="nav-toggle"><span></span><span></span><span></span></div>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="page-hero-bg" aria-hidden="true">ARTISTS</div>
+    <div class="wrap page-hero-inner">
+        <div class="page-breadcrumb">
+            <a href="index.html">HOME</a>
+            <span>/</span>
+            <span style="color: var(--black);">ARTISTS & MUSIC</span>
+        </div>
+        <div class="eyebrow">— Service 04 · 아티스트 매니지먼트</div>
+        <h1 class="page-title" style="margin-top: 24px;">
+            함께 빛나는<br>
+            <em>아티스트들.</em>
+        </h1>
+        <p class="page-lead">클래식 크로스오버, K-Pop, 사진, 드로잉. 다양한 장르의 아티스트와 함께합니다. 작곡부터 공연 무대 위까지, 모든 과정을 더컬쳐앤이 책임집니다.</p>
+    </div>
+</section>
+
+<!-- KIJOYS FEATURE -->
+<section class="content-section">
+    <div class="wrap">
+        <div class="section-head-grid reveal" style="margin-bottom: 60px;">
+            <div>
+                <div class="eyebrow">— Featured Artist</div>
+                <h2 style="margin-top: 24px;">키조이스<br><em>Ki Joy's.</em></h2>
+            </div>
+            <p>"음악을 통해 따뜻한 기적과 희망을 나누고 싶은" 클래식·국악 크로스오버 앙상블. 클래식과 국악의 대중화를 위해 만들어졌습니다.</p>
+        </div>
+
+        <div class="artist-feature reveal">
+            <div class="photo" style="background: linear-gradient(135deg, #2B2520 0%, #D4A24C 100%); overflow: hidden;">
+                <img src="assets/kijoys_team.png" alt="키조이스 - 이서진, 김은비, 박수현" style="width:100%; height:100%; object-fit:cover; object-position: center 15%;">
+            </div>
+            <div class="body">
+                <span class="chip dark" style="margin-bottom: 24px; display: inline-block;">CLASSICAL · CROSSOVER</span>
+                <h3 style="font-weight: 800; font-size: clamp(28px, 3vw, 40px); margin-bottom: 16px; letter-spacing: -0.02em;">Ki Joy's <small style="display:block; font-size: 14px; color: var(--gold-deep); font-family: var(--f-mono); letter-spacing: 0.1em; margin-top: 8px; font-weight: 500;">SINCE 2019</small></h3>
+
+                <p style="font-size: 16px; line-height: 1.8; color: var(--text); margin-bottom: 24px;">"음악을 통해 따뜻한 기적과 희망을 나누고 싶은" 클래식·국악 크로스오버 앙상블. 패션쇼, 미술, 곡 해설 등 다양한 컨셉의 공연을 기획합니다.</p>
+
+                <ul class="svc-list" style="margin-bottom: 24px;">
+                    <li>2019 메트로 아티스트 선정</li>
+                    <li>2021 강남행복콘서트 공연팀 선정</li>
+                    <li>김태우·박봄 콘서트 사전 공연</li>
+                    <li>예술의전당 살롱 콘서트 다수</li>
+                    <li>지하철 메트로 6개역 시민 봉사 연주</li>
+                    <li>100명 규모 생일파티 (성수동 플레이스비브)</li>
+                </ul>
+
+                <div class="member-grid">
+                    <div class="member">
+                        <strong>이서진</strong>
+                        <small>LEADER · 콘트라베이스</small>
+                    </div>
+                    <div class="member">
+                        <strong>김은비</strong>
+                        <small>VIOLIN</small>
+                    </div>
+                    <div class="member">
+                        <strong>박수현</strong>
+                        <small>PIANO</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OTHER ARTISTS -->
+<section class="content-section section-gray">
+    <div class="wrap">
+        <div class="section-head-grid reveal">
+            <div>
+                <div class="eyebrow">— Roster</div>
+                <h2 style="margin-top: 24px;">또 다른<br><em>아티스트들.</em></h2>
+            </div>
+            <p>K-Pop 댄스 그룹부터 사진작가, 드로잉 작가까지. 각 분야 최고의 전문가들과 함께합니다.</p>
+        </div>
+
+        <div class="artist-grid-row">
+            <div class="artist-card-mini reveal">
+                <div class="ph" style="background: linear-gradient(135deg, #D4A24C, #A87938);">
+                    <div class="sym">B</div>
+                </div>
+                <div class="info">
+                    <span class="genre">K-Pop · Dance</span>
+                    <h3>비트리플 <small>B-Triple</small></h3>
+                    <p>'D.M.D (Dream My Dream)'으로 데뷔한 K-Pop 댄스 그룹. 각종 K-Culture 행사에 참여 중.</p>
+                </div>
+            </div>
+
+            <div class="artist-card-mini reveal">
+                <div class="ph" style="background: linear-gradient(135deg, #2B2520, #4A4239);">
+                    <div class="sym">📷</div>
+                </div>
+                <div class="info">
+                    <span class="genre">Photography</span>
+                    <h3>김철준 <small>Kim Cheoljun</small></h3>
+                    <p>아르헨티나 사진공모전 금상(대상). UN WFUNA 2019 초대작가. JW메리어트 호텔 개인사진전.</p>
+                </div>
+            </div>
+
+            <div class="artist-card-mini reveal">
+                <div class="ph" style="background: linear-gradient(135deg, #E8B863, #2B2520);">
+                    <div class="sym">🎨</div>
+                </div>
+                <div class="info">
+                    <span class="genre">Drawing · Pop Art</span>
+                    <h3>HYO · 이윤정 · BADBOSS</h3>
+                    <p>파리 BDMC 개인전, 서울대 미대 출신 동양화 작가, EDM 아티스트까지 — 다양한 시각예술 작가.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MUSIC SERVICE -->
+<section class="svc-detail" id="music">
+    <div class="wrap">
+        <div class="svc-detail-row">
+            <div class="reveal">
+                <div class="svc-visual" style="overflow: hidden;">
+                    <img src="assets/album_package.png" alt="앨범 제작 All in One 패키지" style="width:100%; height:100%; object-fit:cover;">
+                    <div style="position: absolute; top: 24px; left: 24px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--black); background: var(--gold); padding: 6px 14px; border-radius: 100px; font-weight: 700; z-index: 2;">— ALL IN ONE</div>
+                </div>
+            </div>
+
+            <div class="svc-content reveal">
+                <div class="eyebrow">— Music & Event</div>
+                <h2>작곡부터<br>무대 위까지,<br><em>All in One.</em></h2>
+                <p><strong>"남들과 차별화된 가치를 찾고 증명하고 싶어요"</strong>라는 고객의 니즈에서 출발했습니다. 수천만 원대 작곡비 부담 없이, 진짜 가수처럼 무대에 설 수 있도록 모든 과정을 함께합니다.</p>
+
+                <ul class="svc-list">
+                    <li>작곡 · 작사 · 보컬 트레이닝</li>
+                    <li>녹음 · 믹싱 · 마스터링</li>
+                    <li>앨범 커버 디자인 & 음원 사이트 유통</li>
+                    <li>뮤직비디오 기획·촬영·편집</li>
+                    <li>홍보 포스터 & SNS 컨텐츠 제작</li>
+                    <li>공연 큐시트·음향·조명·무대 설치</li>
+                    <li>경호의전팀 운영 · 현장 촬영</li>
+                    <li>인공지능 작곡 시스템 활용 (옵션)</li>
+                </ul>
+
+                <div class="chip-row">
+                    <span class="chip">앨범 제작</span>
+                    <span class="chip">뮤직비디오</span>
+                    <span class="chip">공연 기획</span>
+                    <span class="chip">파티 진행</span>
+                    <span class="chip">AI 작곡</span>
+                </div>
+
+                <a href="contact.html?service=music" class="btn btn-dark btn-arrow">앨범·공연 상담</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SOCIAL PARTY -->
+<section class="svc-detail">
+    <div class="wrap">
+        <div class="svc-detail-row reverse">
+            <div class="reveal">
+                <div class="svc-visual" style="overflow: hidden;">
+                    <img src="assets/social_party.png" alt="더컬쳐앤 Social Music Party" style="width:100%; height:100%; object-fit:cover;">
+                    <div style="position: absolute; top: 24px; left: 24px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.2em; color: var(--black); background: var(--gold); padding: 6px 14px; border-radius: 100px; font-weight: 700; z-index: 2;">— MEMBERSHIP</div>
+                </div>
+            </div>
+
+            <div class="svc-content reveal">
+                <div class="eyebrow">— Social Party</div>
+                <h2>전문직 네트워킹,<br>음악과 함께.</h2>
+                <p>성악·클래식·재즈·뉴에이지 등 연 5회, <strong>공연·연주와 함께하는 네트워킹 소셜 파티</strong>. 회계사·변호사·한의사·스타트업CEO 등 다양한 업계 전문가들과 만나는 프라이빗 멤버십.</p>
+
+                <ul class="svc-list">
+                    <li>2월 — Social & Music (재즈, 뉴에이지, 정통클래식, 성악공연)</li>
+                    <li>6월 — 공연과 함께하는 연주회 & 소셜 파티</li>
+                    <li>8월 — 광복절 기념 수익금 일부 기부행사</li>
+                    <li>10~11월 — 키조이스 정기 연주회 & 네트워킹 파티</li>
+                    <li>12월 — 아마추어와 프로가 함께하는 연주회</li>
+                    <li>연중 — 생일파티 (회원 전용)</li>
+                </ul>
+
+                <div class="chip-row">
+                    <span class="chip dark">회원 전용</span>
+                    <span class="chip">신청곡 가능</span>
+                    <span class="chip">1분 영상 선물</span>
+                    <span class="chip">경품 협찬</span>
+                </div>
+
+                <a href="contact.html?service=party" class="btn btn-dark btn-arrow">멤버십 문의</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+    <div class="cta-band-inner wrap">
+        <h2>당신만의<br>무대를 만들어요.</h2>
+        <p>아티스트 매니지먼트, 앨범 제작, 공연 기획 — 무엇이든 편하게 문의해 주세요.</p>
+        <div class="cta-options">
+            <a href="tel:02-734-3827" class="cta-pill"><span class="icon">📞</span>02-734-3827</a>
+            <a href="http://pf.kakao.com/_QkZhd" class="cta-pill kakao"><span class="icon">💬</span>카카오톡 문의</a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="wrap">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo">
+                    <img src="assets/logo.png" alt="The Culture N">
+                    <span>The Culture <strong style="color:var(--gold-bright)">N</strong></span>
+                </a>
+                <p class="footer-tagline">LSJ Company · 주식회사 더컬쳐앤<br>출판 · 공연 · 문화공간을 잇는<br>All in One 컬쳐 컴퍼니.</p>
+                <div class="footer-contact">02-734-3827</div>
+                <div class="footer-email">dreamwithessmarketing@gmail.com</div>
+            </div>
+            <div class="footer-col">
+                <h4>Artists</h4>
+                <ul>
+                    <li><a href="#">키조이스</a></li>
+                    <li><a href="#">비트리플</a></li>
+                    <li><a href="#">사진작가</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="publishing.html">도서출판</a></li>
+                    <li><a href="lounge.html">라운지</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://instagram.com/lsjcompany1">Instagram</a></li>
+                    <li><a href="http://pf.kakao.com/_QkZhd">KakaoTalk</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 LSJ Company. All rights reserved.</p>
+            <div class="social-row">
+                <a href="#">IG</a><a href="#">YT</a><a href="#">BL</a><a href="#">KK</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="http://pf.kakao.com/_QkZhd" class="fab">Kakao</a>
+<script src="js/main.js"></script>
+</body>
+</html>
