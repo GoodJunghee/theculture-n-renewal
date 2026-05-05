@@ -1,10 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true,
-  "trailingSlash": false,
   "rewrites": [
     { "source": "/", "destination": "/design/index.html" },
-    { "source": "/index.html", "destination": "/design/index.html" },
     { "source": "/about", "destination": "/design/about.html" },
     { "source": "/about.html", "destination": "/design/about.html" },
     { "source": "/publishing", "destination": "/design/publishing.html" },
@@ -17,27 +14,15 @@
     { "source": "/portfolio.html", "destination": "/design/portfolio.html" },
     { "source": "/contact", "destination": "/design/contact.html" },
     { "source": "/contact.html", "destination": "/design/contact.html" },
-    { "source": "/css/(.*)", "destination": "/design/css/$1" },
-    { "source": "/js/(.*)", "destination": "/design/js/$1" },
-    { "source": "/assets/(.*)", "destination": "/design/assets/$1" }
+    { "source": "/css/:path*", "destination": "/design/css/:path*" },
+    { "source": "/js/:path*", "destination": "/design/js/:path*" },
+    { "source": "/assets/:path*", "destination": "/design/assets/:path*" }
   ],
   "headers": [
     {
       "source": "/design/assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/design/css/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
-      ]
-    },
-    {
-      "source": "/design/js/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
       ]
     }
   ]
