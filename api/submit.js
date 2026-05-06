@@ -1,35 +1,50 @@
 /* ========================================================
    POST /api/submit
    - Receives lead form submissions
-   - Stores in Vercel KV (if configured) or in-memory dev fallback
+   - Stores in Upstash Redis (via Vercel Marketplace)
+   - Falls back to in-memory if Redis env vars are not set
    - Returns 200 + submission id
    ======================================================== */
 
-let kv = null;
-try {
-  // Lazy import so the file works even when @vercel/kv isn't installed in dev
-  kv = require('@vercel/kv').kv;
-} catch (e) {
-  kv = null;
-}
-
 const KV_LIST_KEY = 'tcn:submissions';
 
-// In-memory fallback for local dev only (NOT persistent across cold starts)
+// Lazy-load Redis only when env vars exist
+function getRedis() {
+  // Support both Vercel KV (legacy) and Upstash Redis (Marketplace) env vars
+  const url =
+    process.env.KV_REST_API_URL ||
+    process.env.UPSTASH_REDIS_REST_URL ||
+    null;
+  const token =
+    process.env.KV_REST_API_TOKEN ||
+    process.env.UPSTASH_REDIS_REST_TOKEN ||
+    null;
+
+  if (!url || !token) return null;
+
+  try {
+    const { Redis } = require('@upstash/redis');
+    return new Redis({ url, token });
+  } catch (err) {
+    console.error('Failed to init Redis:', err);
+    return null;
+  }
+}
+
+// In-memory fallback (NOT persistent across cold starts)
 globalThis.__tcn_inmemory = globalThis.__tcn_inmemory || [];
 
 function getClientIp(req) {
   return (
-    req.headers['x-forwarded-for']?.split(',')[0]?.trim() ||
+    (req.headers['x-forwarded-for'] || '').split(',')[0].trim() ||
     req.headers['x-real-ip'] ||
-    req.socket?.remoteAddress ||
+    (req.socket && req.socket.remoteAddress) ||
     null
   );
 }
 
 function sanitizeString(v) {
   if (typeof v !== 'string') return v;
-  // Strip control chars + length limit
   return v.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '').slice(0, 4000);
 }
 
@@ -59,23 +74,19 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  // Parse body (Vercel auto-parses JSON for application/json)
   let body = req.body;
   if (typeof body === 'string') {
     try { body = JSON.parse(body); } catch (e) { body = {}; }
   }
   body = body || {};
 
-  // Sanitize
   const data = sanitizePayload(body);
 
-  // Server-side required validation (minimal)
   if (!data.name || !data.phone) {
     res.status(400).json({ error: 'missing_required', fields: ['name', 'phone'] });
     return;
   }
 
-  // Build submission record
   const id = `sub_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
   const submission = {
     id,
@@ -85,20 +96,19 @@ module.exports = async function handler(req, res) {
     ...data,
   };
 
-  // Store
   let stored = false;
-  if (kv) {
+  const redis = getRedis();
+
+  if (redis) {
     try {
-      // Push as JSON string to a list (KV LIST is supported)
-      await kv.lpush(KV_LIST_KEY, JSON.stringify(submission));
+      await redis.lpush(KV_LIST_KEY, JSON.stringify(submission));
       stored = true;
     } catch (err) {
-      console.error('KV lpush failed:', err);
+      console.error('Redis lpush failed:', err);
     }
   }
 
   if (!stored) {
-    // Fallback: in-memory (dev only)
     globalThis.__tcn_inmemory.unshift(submission);
     if (globalThis.__tcn_inmemory.length > 200) {
       globalThis.__tcn_inmemory.length = 200;
@@ -108,6 +118,6 @@ module.exports = async function handler(req, res) {
   res.status(200).json({
     ok: true,
     id,
-    persisted: stored ? 'kv' : 'memory',
+    persisted: stored ? 'redis' : 'memory',
   });
 };

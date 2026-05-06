@@ -1,17 +1,29 @@
 /* ========================================================
    POST /api/admin/delete
    Body: { id: "sub_..." }
-   - Removes a single submission by id
    ======================================================== */
 
-let kv = null;
-try {
-  kv = require('@vercel/kv').kv;
-} catch (e) {
-  kv = null;
-}
-
 const KV_LIST_KEY = 'tcn:submissions';
+
+function getRedis() {
+  const url =
+    process.env.KV_REST_API_URL ||
+    process.env.UPSTASH_REDIS_REST_URL ||
+    null;
+  const token =
+    process.env.KV_REST_API_TOKEN ||
+    process.env.UPSTASH_REDIS_REST_TOKEN ||
+    null;
+
+  if (!url || !token) return null;
+
+  try {
+    const { Redis } = require('@upstash/redis');
+    return new Redis({ url, token });
+  } catch (err) {
+    return null;
+  }
+}
 
 module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
@@ -21,7 +33,6 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  // Auth
   const expected = process.env.ADMIN_TOKEN;
   const provided = req.headers['x-admin-token'] || (req.query && req.query.token);
   if (!expected || provided !== expected) {
@@ -40,11 +51,11 @@ module.exports = async function handler(req, res) {
   }
 
   let removed = 0;
+  const redis = getRedis();
 
-  if (kv) {
+  if (redis) {
     try {
-      // Read all, filter out matching id, rewrite list
-      const raw = await kv.lrange(KV_LIST_KEY, 0, -1);
+      const raw = await redis.lrange(KV_LIST_KEY, 0, -1);
       const items = (raw || []).map(item => {
         if (typeof item === 'string') {
           try { return JSON.parse(item); } catch (e) { return null; }
@@ -56,18 +67,16 @@ module.exports = async function handler(req, res) {
       removed = items.length - filtered.length;
 
       if (removed > 0) {
-        // Atomic-ish: clear and reinsert
-        await kv.del(KV_LIST_KEY);
+        await redis.del(KV_LIST_KEY);
         if (filtered.length) {
-          // lpush in reverse so first item ends at index 0 (most recent)
           for (let i = filtered.length - 1; i >= 0; i--) {
-            await kv.lpush(KV_LIST_KEY, JSON.stringify(filtered[i]));
+            await redis.lpush(KV_LIST_KEY, JSON.stringify(filtered[i]));
           }
         }
       }
     } catch (err) {
-      console.error('KV delete failed:', err);
-      res.status(500).json({ error: 'kv_error' });
+      console.error('Redis delete failed:', err);
+      res.status(500).json({ error: 'redis_error' });
       return;
     }
   } else if (Array.isArray(globalThis.__tcn_inmemory)) {

@@ -4,14 +4,28 @@
    - Auth: header `x-admin-token` or query `?token=...` must match env ADMIN_TOKEN
    ======================================================== */
 
-let kv = null;
-try {
-  kv = require('@vercel/kv').kv;
-} catch (e) {
-  kv = null;
-}
-
 const KV_LIST_KEY = 'tcn:submissions';
+
+function getRedis() {
+  const url =
+    process.env.KV_REST_API_URL ||
+    process.env.UPSTASH_REDIS_REST_URL ||
+    null;
+  const token =
+    process.env.KV_REST_API_TOKEN ||
+    process.env.UPSTASH_REDIS_REST_TOKEN ||
+    null;
+
+  if (!url || !token) return null;
+
+  try {
+    const { Redis } = require('@upstash/redis');
+    return new Redis({ url, token });
+  } catch (err) {
+    console.error('Failed to init Redis:', err);
+    return null;
+  }
+}
 
 module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
@@ -35,27 +49,27 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  // Pagination
   const limit = Math.min(parseInt((req.query && req.query.limit) || '200', 10) || 200, 1000);
 
   let submissions = [];
+  const redis = getRedis();
+  let storage = 'memory';
 
-  if (kv) {
+  if (redis) {
     try {
-      // KV stores as JSON strings in a list (most recent first via lpush)
-      const raw = await kv.lrange(KV_LIST_KEY, 0, limit - 1);
+      const raw = await redis.lrange(KV_LIST_KEY, 0, limit - 1);
       submissions = (raw || []).map(item => {
         if (typeof item === 'string') {
           try { return JSON.parse(item); } catch (e) { return null; }
         }
-        return item;
+        return item;  // upstash auto-deserializes JSON sometimes
       }).filter(Boolean);
+      storage = 'upstash-redis';
     } catch (err) {
-      console.error('KV lrange failed:', err);
+      console.error('Redis lrange failed:', err);
     }
   }
 
-  // Fallback: in-memory (dev only)
   if (!submissions.length && Array.isArray(globalThis.__tcn_inmemory)) {
     submissions = globalThis.__tcn_inmemory.slice(0, limit);
   }
@@ -64,6 +78,6 @@ module.exports = async function handler(req, res) {
     ok: true,
     count: submissions.length,
     submissions,
-    storage: kv ? 'vercel-kv' : 'memory',
+    storage,
   });
 };
