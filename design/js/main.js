@@ -38,9 +38,35 @@
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('.nav-menu');
 
+  function setMenuState(open) {
+    if (!navMenu || !navToggle) return;
+    navMenu.classList.toggle('open', open);
+    navToggle.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
   navToggle?.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-    navToggle.classList.toggle('open');
+    const isOpen = navMenu.classList.contains('open');
+    setMenuState(!isOpen);
+  });
+
+  // Close menu on link click (smooth UX on mobile)
+  navMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setMenuState(false));
+  });
+
+  // Close on ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu?.classList.contains('open')) {
+      setMenuState(false);
+    }
+  });
+
+  // Close on resize to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900 && navMenu?.classList.contains('open')) {
+      setMenuState(false);
+    }
   });
 
   // ===== Reveal on scroll =====
