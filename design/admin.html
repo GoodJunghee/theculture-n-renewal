@@ -612,19 +612,18 @@ body { background: var(--gray-soft); }
         <span>The Culture <strong style="color:var(--gold-deep)">N</strong> Admin</span>
       </div>
       <h1>관리자 로그인</h1>
-      <p>견적·상담 신청 데이터를 조회하려면 관리자 토큰을 입력하세요.</p>
+      <p>견적·상담 신청 데이터를 조회하려면 ID와 비밀번호를 입력하세요.</p>
 
       <form id="loginForm">
-        <label for="adminToken">Admin Token</label>
-        <input type="password" id="adminToken" placeholder="관리자 토큰 입력" autocomplete="current-password" required>
+        <label for="adminId">ID</label>
+        <input type="text" id="adminId" placeholder="관리자 ID" autocomplete="username" required>
+
+        <label for="adminPw" style="margin-top: 16px;">Password</label>
+        <input type="password" id="adminPw" placeholder="비밀번호" autocomplete="current-password" required>
+
         <p class="err" id="loginErr"></p>
         <button type="submit">로그인</button>
       </form>
-
-      <div class="hint">
-        <strong>처음 사용하시나요?</strong><br>
-        Vercel 대시보드 → Project Settings → Environment Variables에서 <code>ADMIN_TOKEN</code>을 설정하고 같은 값을 여기에 입력하세요.
-      </div>
     </div>
   </section>
 
@@ -721,14 +720,16 @@ body { background: var(--gray-soft); }
 
 <script>
 (function () {
-  const TOKEN_KEY = 'tcn_admin_token';
+  const ID_KEY = 'tcn_admin_id';
+  const PW_KEY = 'tcn_admin_pw';
   let allSubmissions = [];
 
   const els = {
     loginView: document.getElementById('loginView'),
     dashView: document.getElementById('dashView'),
     loginForm: document.getElementById('loginForm'),
-    adminToken: document.getElementById('adminToken'),
+    adminId: document.getElementById('adminId'),
+    adminPw: document.getElementById('adminPw'),
     loginErr: document.getElementById('loginErr'),
     refreshBtn: document.getElementById('refreshBtn'),
     logoutBtn: document.getElementById('logoutBtn'),
@@ -752,13 +753,26 @@ body { background: var(--gray-soft); }
     drawerBody: document.getElementById('drawerBody'),
   };
 
-  function getToken() {
-    return sessionStorage.getItem(TOKEN_KEY) || '';
+  function getCreds() {
+    return {
+      id: sessionStorage.getItem(ID_KEY) || '',
+      pw: sessionStorage.getItem(PW_KEY) || '',
+    };
   }
 
-  function setToken(t) {
-    if (t) sessionStorage.setItem(TOKEN_KEY, t);
-    else sessionStorage.removeItem(TOKEN_KEY);
+  function setCreds(id, pw) {
+    if (id && pw) {
+      sessionStorage.setItem(ID_KEY, id);
+      sessionStorage.setItem(PW_KEY, pw);
+    } else {
+      sessionStorage.removeItem(ID_KEY);
+      sessionStorage.removeItem(PW_KEY);
+    }
+  }
+
+  function authHeaders() {
+    const { id, pw } = getCreds();
+    return { 'x-admin-id': id, 'x-admin-token': pw };
   }
 
   function show(view) {
@@ -767,8 +781,8 @@ body { background: var(--gray-soft); }
   }
 
   async function loadSubmissions() {
-    const token = getToken();
-    if (!token) {
+    const { id, pw } = getCreds();
+    if (!id || !pw) {
       show('login');
       return;
     }
@@ -779,13 +793,13 @@ body { background: var(--gray-soft); }
 
     try {
       const res = await fetch('/api/admin/list?limit=500', {
-        headers: { 'x-admin-token': token },
+        headers: authHeaders(),
       });
 
       if (res.status === 401) {
-        setToken('');
+        setCreds('', '');
         show('login');
-        els.loginErr.textContent = '인증 실패. 토큰을 확인해주세요.';
+        els.loginErr.textContent = '인증 실패. ID/비밀번호를 확인해주세요.';
         els.loginErr.classList.add('is-show');
         return;
       }
@@ -960,30 +974,27 @@ body { background: var(--gray-soft); }
   els.loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     els.loginErr.classList.remove('is-show');
-    const t = els.adminToken.value.trim();
-    if (!t) return;
+    const id = els.adminId.value.trim();
+    const pw = els.adminPw.value;
+    if (!id || !pw) return;
 
-    // Test token by hitting list endpoint
+    // Test creds by hitting list endpoint
     try {
       const res = await fetch('/api/admin/list?limit=1', {
-        headers: { 'x-admin-token': t },
+        headers: { 'x-admin-id': id, 'x-admin-token': pw },
       });
       if (res.status === 401) {
-        els.loginErr.textContent = '잘못된 토큰입니다.';
+        els.loginErr.textContent = '잘못된 ID 또는 비밀번호입니다.';
         els.loginErr.classList.add('is-show');
         return;
       }
       if (!res.ok) {
         const d = await res.json().catch(() => ({}));
-        if (d.error === 'admin_token_not_configured') {
-          els.loginErr.textContent = 'Vercel ADMIN_TOKEN 환경변수가 설정되지 않았습니다.';
-        } else {
-          els.loginErr.textContent = `서버 오류: ${d.error || res.status}`;
-        }
+        els.loginErr.textContent = `서버 오류: ${d.error || res.status}`;
         els.loginErr.classList.add('is-show');
         return;
       }
-      setToken(t);
+      setCreds(id, pw);
       show('dash');
       loadSubmissions();
     } catch (err) {
@@ -996,10 +1007,11 @@ body { background: var(--gray-soft); }
   els.refreshBtn.addEventListener('click', loadSubmissions);
 
   els.logoutBtn.addEventListener('click', () => {
-    setToken('');
+    setCreds('', '');
     allSubmissions = [];
     show('login');
-    els.adminToken.value = '';
+    els.adminId.value = '';
+    els.adminPw.value = '';
   });
 
   els.exportBtn.addEventListener('click', () => {
@@ -1034,7 +1046,8 @@ body { background: var(--gray-soft); }
   els.filterSource.addEventListener('change', renderTable);
 
   // Init
-  if (getToken()) {
+  const { id: savedId, pw: savedPw } = getCreds();
+  if (savedId && savedPw) {
     show('dash');
     loadSubmissions();
   } else {

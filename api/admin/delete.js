@@ -5,6 +5,19 @@
 
 const KV_LIST_KEY = 'tcn:submissions';
 
+const DEFAULT_ADMIN_ID = 'theculture';
+const DEFAULT_ADMIN_PASSWORD = '1q2w3e4r!';
+
+function checkAuth(req) {
+  const expectedId = process.env.ADMIN_ID || DEFAULT_ADMIN_ID;
+  const expectedPw = process.env.ADMIN_PASSWORD || process.env.ADMIN_TOKEN || DEFAULT_ADMIN_PASSWORD;
+
+  const id = req.headers['x-admin-id'] || (req.query && req.query.id) || '';
+  const pw = req.headers['x-admin-token'] || req.headers['x-admin-password'] || (req.query && req.query.token) || '';
+
+  return id === expectedId && pw === expectedPw;
+}
+
 function getRedis() {
   const url =
     process.env.KV_REST_API_URL ||
@@ -33,9 +46,7 @@ module.exports = async function handler(req, res) {
     return;
   }
 
-  const expected = process.env.ADMIN_TOKEN;
-  const provided = req.headers['x-admin-token'] || (req.query && req.query.token);
-  if (!expected || provided !== expected) {
+  if (!checkAuth(req)) {
     res.status(401).json({ error: 'unauthorized' });
     return;
   }

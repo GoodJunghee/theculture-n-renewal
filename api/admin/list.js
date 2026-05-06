@@ -1,10 +1,25 @@
 /* ========================================================
    GET /api/admin/list
    - Returns all submissions (admin only)
-   - Auth: header `x-admin-token` or query `?token=...` must match env ADMIN_TOKEN
+   - Auth: ID + Password (headers x-admin-id, x-admin-token)
+   - Defaults: theculture / 1q2w3e4r!  (overridable via env)
    ======================================================== */
 
 const KV_LIST_KEY = 'tcn:submissions';
+
+// Default credentials (can be overridden via Vercel env vars)
+const DEFAULT_ADMIN_ID = 'theculture';
+const DEFAULT_ADMIN_PASSWORD = '1q2w3e4r!';
+
+function checkAuth(req) {
+  const expectedId = process.env.ADMIN_ID || DEFAULT_ADMIN_ID;
+  const expectedPw = process.env.ADMIN_PASSWORD || process.env.ADMIN_TOKEN || DEFAULT_ADMIN_PASSWORD;
+
+  const id = req.headers['x-admin-id'] || (req.query && req.query.id) || '';
+  const pw = req.headers['x-admin-token'] || req.headers['x-admin-password'] || (req.query && req.query.token) || '';
+
+  return id === expectedId && pw === expectedPw;
+}
 
 function getRedis() {
   const url =
@@ -30,21 +45,7 @@ function getRedis() {
 module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
 
-  // Auth check
-  const expected = process.env.ADMIN_TOKEN;
-  const provided =
-    req.headers['x-admin-token'] ||
-    (req.query && req.query.token) ||
-    null;
-
-  if (!expected) {
-    res.status(500).json({
-      error: 'admin_token_not_configured',
-      hint: 'Set ADMIN_TOKEN environment variable in Vercel dashboard.',
-    });
-    return;
-  }
-  if (!provided || provided !== expected) {
+  if (!checkAuth(req)) {
     res.status(401).json({ error: 'unauthorized' });
     return;
   }
@@ -62,7 +63,7 @@ module.exports = async function handler(req, res) {
         if (typeof item === 'string') {
           try { return JSON.parse(item); } catch (e) { return null; }
         }
-        return item;  // upstash auto-deserializes JSON sometimes
+        return item;
       }).filter(Boolean);
       storage = 'upstash-redis';
     } catch (err) {
