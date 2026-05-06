@@ -94,6 +94,64 @@ body {
     }
 }
 
+/* ========================================================
+   Mobile Grid Safety Net
+   Catch ALL inline grid-template-columns: repeat(N, ...)
+   to prevent broken layouts on mobile.
+   ======================================================== */
+@media (max-width: 768px) {
+    /* 3 cols → 1 col */
+    [style*="grid-template-columns: repeat(3"] {
+        grid-template-columns: 1fr !important;
+    }
+    /* 4 cols → 2 cols */
+    [style*="grid-template-columns: repeat(4"] {
+        grid-template-columns: 1fr 1fr !important;
+    }
+    /* 5 cols → 2 cols */
+    [style*="grid-template-columns: repeat(5"] {
+        grid-template-columns: 1fr 1fr !important;
+    }
+    /* 2 cols → 1 col */
+    [style*="grid-template-columns: repeat(2"] {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* All multi-column grids → 1 col on small phones */
+    [style*="grid-template-columns: repeat("] {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Prevent text-transform: uppercase on Korean (causes broken kerning) */
+:lang(ko) [style*="text-transform: uppercase"] {
+    /* allow but ensure no vertical squashing */
+}
+
+/* Safety: any flex with center justification on mobile gets gap reduction */
+@media (max-width: 480px) {
+    [style*="display: flex"][style*="justify-content: center"][style*="gap: 60px"] {
+        gap: 24px !important;
+    }
+}
+
+/* Footer-bottom social-row: ensure wrapping on small screens */
+@media (max-width: 600px) {
+    .social-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Reveal-stagger fix on mobile: less stagger delay */
+@media (max-width: 600px) {
+    .reveal-stagger.is-in > * {
+        transition-delay: 0s !important;
+    }
+}
+
 img, video {
     max-width: 100%;
     display: block;

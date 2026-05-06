@@ -152,14 +152,37 @@
     font-weight: 500;
 }
 
+.artist-grid-row {
+    align-items: stretch;
+}
+
+.artist-card-mini {
+    display: flex;
+    flex-direction: column;
+}
+
+.artist-card-mini .info {
+    flex: 1;
+}
+
 @media (max-width: 1024px) {
     .artist-feature {
         grid-template-columns: 1fr;
     }
     .artist-feature .body { padding: 32px; }
     .artist-feature .photo { min-height: 320px; }
-    .artist-grid-row { grid-template-columns: 1fr; }
-    .member-grid { grid-template-columns: 1fr; gap: 8px; }
+    .artist-grid-row { grid-template-columns: 1fr; gap: 16px; }
+    .member-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+}
+
+@media (max-width: 768px) {
+    .artist-feature .body { padding: 28px 24px; }
+    .artist-feature::before { font-size: 180px; }
+    .artist-card-mini .ph { height: 220px; }
+    .artist-card-mini .info { padding: 24px 22px; }
+    .artist-card-mini h3 { font-size: 21px; }
+    .member-grid { grid-template-columns: 1fr; gap: 8px; padding-top: 24px; margin-top: 24px; }
+    .member { padding: 16px; }
 }
 </style>
 </head>

@@ -279,6 +279,72 @@
     text-align: right;
 }
 
+/* === Pub Offers (3-card "What We Offer") === */
+.pub-offers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+    align-items: stretch;
+}
+
+.pub-offer-card {
+    padding: 36px 30px;
+    background: var(--gold-soft);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform var(--t-fast) var(--ease);
+}
+
+.pub-offer-card:hover {
+    transform: translateY(-4px);
+}
+
+.pub-offer-card .cat-num {
+    margin-bottom: 18px;
+}
+
+.pub-offer-card h4 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--black);
+    margin-bottom: 12px;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+    word-break: keep-all;
+}
+
+.pub-offer-card p {
+    font-family: var(--f-sans);
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+    word-break: keep-all;
+}
+
+@media (max-width: 1024px) {
+    .pub-offers-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .pub-offers-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 28px;
+    }
+    .pub-offer-card {
+        padding: 28px 24px;
+    }
+    .pub-offer-card h4 { font-size: 19px; }
+    .pub-offer-card p { font-size: 14px; }
+}
+
 /* === Pricing === */
 .pricing { padding: 140px 0; background: var(--gray-soft); }
 
@@ -405,12 +471,37 @@
     .cat-grid { grid-template-columns: 1fr 1fr; }
     .cat-cell { border-right: none !important; border-bottom: 1px solid var(--gray-line) !important; }
     .cat-cell:nth-child(2n) { border-right: 1px solid var(--gray-line) !important; }
-    .pub-step { grid-template-columns: 1fr; gap: 12px; }
+    .pub-step { grid-template-columns: 1fr; gap: 12px; padding: 32px 0; }
     .pricing-grid { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 768px) {
+    .pub-hero { padding: 120px 0 60px; }
+    .pub-hero h1 { font-size: clamp(32px, 8.5vw, 52px); }
+    .pub-hero p { font-size: 15px; }
+    .pub-hero-meta { gap: 18px; padding-top: 18px; }
+    .pub-hero-meta strong { font-size: 13px; }
+    .pub-stack { height: 320px; max-width: 280px; margin: 0 auto; }
+    .pub-stack .book { width: 180px; }
+    .pub-stack .book::before { font-size: 16px; padding: 18px; }
+
+    .cat-section, .pub-process, .pricing { padding: 80px 0; }
+    .cat-cell { padding: 28px 22px; }
+    .cat-cell h4 { font-size: 19px; }
+
+    .pub-step h3 { font-size: 19px; }
+    .pub-step p { font-size: 14px; }
+    .pub-step .duration { font-size: 11px; text-align: left; }
+
+    .price-card { padding: 36px 28px; }
+    .price-card h3 { font-size: 24px; }
+    .price-amount { font-size: 40px; }
+    .price-features li { font-size: 13.5px; }
+    .price-card .btn { width: 100%; }
+}
+
 @media (max-width: 600px) {
-    .pub-stack .book { width: 160px; }
+    .pub-stack .book { width: 156px; }
     .cat-grid { grid-template-columns: 1fr; }
     .cat-cell { border-right: none !important; }
 }
@@ -501,21 +592,21 @@
             <p>한 권의 책을 내기까지의 모든 어려움 — 원고 작성, 편집, 디자인, 인쇄, 유통, 마케팅 — 더컬쳐앤이 모두 해결합니다. 당신은 이야기를 들려주기만 하면 됩니다.</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px;">
-            <div class="reveal" style="padding: 40px; background: var(--gold-soft); border-radius: var(--radius-lg);">
+        <div class="pub-offers-grid">
+            <div class="reveal pub-offer-card">
                 <div class="cat-num">01</div>
-                <h4 style="font-weight: 800; font-size: 24px; color: var(--black); margin-bottom: 12px; letter-spacing: -0.015em;">원고 컨설팅</h4>
-                <p style="font-size: 14px; color: var(--text); line-height: 1.7;">백지에서 시작해도 좋습니다. 1:1 컨설팅으로 책의 컨셉과 목차, 톤을 함께 설계합니다.</p>
+                <h4>원고 컨설팅</h4>
+                <p>백지에서 시작해도 좋습니다. 1:1 컨설팅으로 책의 컨셉과 목차, 톤을 함께 설계합니다.</p>
             </div>
-            <div class="reveal" style="padding: 40px; background: var(--gold-soft); border-radius: var(--radius-lg);">
+            <div class="reveal pub-offer-card">
                 <div class="cat-num">02</div>
-                <h4 style="font-weight: 800; font-size: 24px; color: var(--black); margin-bottom: 12px; letter-spacing: -0.015em;">기획·편집·디자인</h4>
-                <p style="font-size: 14px; color: var(--text); line-height: 1.7;">전문 작가의 윤문·대필부터 표지·내지 디자인까지. 브랜드급 결과물을 만듭니다.</p>
+                <h4>기획·편집·디자인</h4>
+                <p>전문 작가의 윤문·대필부터 표지·내지 디자인까지. 브랜드급 결과물을 만듭니다.</p>
             </div>
-            <div class="reveal" style="padding: 40px; background: var(--gold-soft); border-radius: var(--radius-lg);">
+            <div class="reveal pub-offer-card">
                 <div class="cat-num">03</div>
-                <h4 style="font-weight: 800; font-size: 24px; color: var(--black); margin-bottom: 12px; letter-spacing: -0.015em;">유통·마케팅</h4>
-                <p style="font-size: 14px; color: var(--text); line-height: 1.7;">교보·예스24·알라딘 등 전국 서점 유통. SNS·블로그 마케팅과 보도자료 배포까지.</p>
+                <h4>유통·마케팅</h4>
+                <p>교보·예스24·알라딘 등 전국 서점 유통. SNS·블로그 마케팅과 보도자료 배포까지.</p>
             </div>
         </div>
     </div>
