@@ -14,6 +14,9 @@
     { "source": "/portfolio.html", "destination": "/design/portfolio.html" },
     { "source": "/contact", "destination": "/design/contact.html" },
     { "source": "/contact.html", "destination": "/design/contact.html" },
+    { "source": "/professional", "destination": "/design/professional.html" },
+    { "source": "/professional.html", "destination": "/design/professional.html" },
+    { "source": "/landing", "destination": "/design/professional.html" },
     { "source": "/css/:path*", "destination": "/design/css/:path*" },
     { "source": "/js/:path*", "destination": "/design/js/:path*" },
     { "source": "/assets/:path*", "destination": "/design/assets/:path*" }

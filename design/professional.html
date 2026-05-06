@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전문직 자서전 출판 · 의료·법조·세무·교육 | 더컬쳐앤 The Culture N</title>
+<meta name="description" content="의료계·법조계·세무사·전문직·학원 원장님을 위한 자서전 출판 패키지. 부모님 자서전 컨셉. 30년의 노하우를 한 권의 브랜드 자산으로. 무료 상담 신청.">
+<meta property="og:title" content="전문직을 위한 책, 한 권의 브랜드 자산이 됩니다 | 더컬쳐앤">
+<meta property="og:description" content="의료·법조·세무·전문직·교육 분야 자서전 출판 패키지. 부모 자서전 컨셉 포함. 30분 내 무료 상담 회신.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theculture-n-renewal.vercel.app/professional">
+<meta property="og:image" content="https://theculture-n-renewal.vercel.app/assets/logo.png">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="더컬쳐앤 The Culture N">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="전문직을 위한 책, 한 권의 브랜드 자산이 됩니다">
+<meta name="twitter:description" content="의료·법조·세무·전문직 자서전 패키지. 30분 내 무료 상담.">
+<!-- SNS Marketing Tracking Pixels (placeholder · 실제 픽셀 ID로 교체 필요) -->
+<!-- Meta(Facebook · Instagram) Pixel placeholder -->
+<!-- <script>!function(f,b,e,v,n,t,s){...}('init', 'YOUR_PIXEL_ID');</script> -->
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/sub.css">
+<style>
+/* ========================================================
+   Landing Page · 전문직 자서전 출판
+   ======================================================== */
+
+body { background: var(--paper); }
+
+/* === HERO === */
+.lp-hero {
+    padding: 160px 0 90px;
+    background: linear-gradient(180deg, #1A1A1A 0%, #2B2520 100%);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+}
+
+.lp-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 30%, rgba(212, 162, 76, 0.18), transparent 55%);
+    pointer-events: none;
+}
+
+.lp-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.lp-hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: rgba(212, 162, 76, 0.12);
+    border: 1px solid rgba(212, 162, 76, 0.4);
+    border-radius: 100px;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--gold-bright);
+    margin-bottom: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.lp-hero-tag .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--gold-bright);
+    border-radius: 50%;
+    animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.lp-hero h1 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: clamp(36px, 5vw, 68px);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--paper);
+    margin-bottom: 28px;
+    word-break: keep-all;
+}
+
+.lp-hero h1 em {
+    font-style: normal;
+    color: var(--gold-bright);
+    position: relative;
+    display: inline-block;
+}
+
+.lp-hero h1 em::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+}
+
+.lp-hero-lead {
+    font-family: var(--f-sans);
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(252, 250, 246, 0.78);
+    margin-bottom: 36px;
+    max-width: 540px;
+    word-break: keep-all;
+}
+
+.lp-hero-targets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 36px;
+}
+
+.lp-hero-target {
+    padding: 8px 14px;
+    background: rgba(252, 250, 246, 0.06);
+    border: 1px solid rgba(252, 250, 246, 0.15);
+    border-radius: 100px;
+    font-family: var(--f-sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(252, 250, 246, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+.lp-hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.lp-hero-actions .btn-primary {
+    background: var(--gold);
+    color: var(--ink);
+    border-color: var(--gold);
+    padding: 20px 36px;
+    font-size: 15px;
+}
+
+.lp-hero-actions .btn-primary:hover {
+    background: var(--gold-bright);
+    border-color: var(--gold-bright);
+    color: var(--ink);
+}
+
+.lp-hero-actions .btn-ghost {
+    background: rgba(252, 250, 246, 0.08);
+    border-color: rgba(252, 250, 246, 0.25);
+    color: var(--paper);
+    padding: 20px 32px;
+    font-size: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.lp-hero-actions .btn-ghost:hover {
+    background: rgba(252, 250, 246, 0.14);
+    border-color: var(--paper);
+    color: var(--paper);
+}
+
+/* Hero video preview */
+.lp-hero-video {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, #2B2520 0%, #4A4239 100%);
+    cursor: pointer;
+    border: 1px solid rgba(212, 162, 76, 0.3);
+}
+
+.lp-hero-video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.lp-hero-video::before {
+    content: 'WHY · 전문직이 책을 써야 하는 이유';
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 3;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold-bright);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 6px 12px;
+    border-radius: 100px;
+    backdrop-filter: blur(8px);
+    pointer-events: none;
+}
+
+/* === WHY SECTION === */
+.lp-why {
+    padding: 130px 0;
+    background: var(--paper);
+}
+
+.lp-why-head {
+    text-align: center;
+    margin-bottom: 72px;
+}
+
+.lp-why-head h2 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1.15;
+    color: var(--black);
+    margin-top: 16px;
+    letter-spacing: -0.022em;
+    word-break: keep-all;
+}
+
+.lp-why-head h2 em {
+    font-style: normal;
+    color: var(--gold-deep);
+}
+
+.lp-why-head p {
+    font-family: var(--f-sans);
+    font-size: 17px;
+    color: var(--text-soft);
+    margin-top: 20px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.lp-why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.lp-why-card {
+    padding: 44px 32px;
+    background: var(--white);
+    border: 1px solid var(--gray-line);
+    border-radius: var(--radius-lg);
+    transition: all var(--t-fast) var(--ease);
+    position: relative;
+    overflow: hidden;
+}
+
+.lp-why-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--t) var(--ease);
+}
+
+.lp-why-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.06);
+    border-color: var(--gold-line);
+}
+
+.lp-why-card:hover::before {
+    transform: scaleX(1);
+}
+
+.lp-why-num {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    color: var(--gold-deep);
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.lp-why-card h3 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 1.3;
+    color: var(--black);
+    margin-bottom: 14px;
+    letter-spacing: -0.015em;
+    word-break: keep-all;
+}
+
+.lp-why-card p {
+    font-family: var(--f-sans);
+    font-size: 14.5px;
+    color: var(--text);
+    line-height: 1.75;
+    word-break: keep-all;
+}
+
+/* === TARGET PERSONAS === */
+.lp-targets {
+    padding: 130px 0;
+    background: linear-gradient(180deg, #FBF8F3 0%, #F5F1EA 100%);
+}
+
+.lp-targets-head {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.lp-targets-head h2 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: clamp(30px, 3.8vw, 48px);
+    color: var(--black);
+    margin-top: 14px;
+    letter-spacing: -0.02em;
+    line-height: 1.18;
+    word-break: keep-all;
+}
+
+.lp-targets-head p {
+    font-family: var(--f-sans);
+    color: var(--text-soft);
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lp-target-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.lp-target-card {
+    background: var(--paper);
+    border: 1px solid var(--gold-line);
+    border-radius: var(--radius-lg);
+    padding: 32px 20px;
+    text-align: center;
+    transition: all var(--t-fast) var(--ease);
+    cursor: pointer;
+}
+
+.lp-target-card:hover {
+    transform: translateY(-6px);
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.lp-target-card:hover .lp-target-icon { color: var(--gold-bright); }
+.lp-target-card:hover h4 { color: var(--paper); }
+.lp-target-card:hover p { color: rgba(252, 250, 246, 0.7); }
+.lp-target-card:hover .lp-target-tag {
+    background: rgba(212, 162, 76, 0.16);
+    color: var(--gold-bright);
+    border-color: rgba(212, 162, 76, 0.4);
+}
+
+.lp-target-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+    color: var(--gold-deep);
+    transition: color var(--t-fast) var(--ease);
+    line-height: 1;
+}
+
+.lp-target-card h4 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--black);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+    transition: color var(--t-fast) var(--ease);
+}
+
+.lp-target-card p {
+    font-family: var(--f-sans);
+    font-size: 12.5px;
+    color: var(--text-soft);
+    line-height: 1.55;
+    margin-bottom: 16px;
+    transition: color var(--t-fast) var(--ease);
+    word-break: keep-all;
+}
+
+.lp-target-tag {
+    display: inline-block;
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    background: var(--gold-soft);
+    color: var(--gold-deep);
+    border: 1px solid rgba(168, 121, 56, 0.25);
+    border-radius: 100px;
+    transition: all var(--t-fast) var(--ease);
+    font-weight: 600;
+}
+
+/* === PARENTS BIOGRAPHY HIGHLIGHT === */
+.lp-parents {
+    padding: 130px 0;
+    background: var(--paper);
+    position: relative;
+    overflow: hidden;
+}
+
+.lp-parents-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 80px;
+    align-items: center;
+}
+
+.lp-parents-visual {
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(180deg, #F7EFE0 0%, #E8DCC4 100%);
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(168, 121, 56, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 56px 48px;
+    border: 1px solid rgba(168, 121, 56, 0.18);
+}
+
+.lp-parents-visual::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 14px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.18), transparent);
+}
+
+.lp-parents-visual-tag {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold-deep);
+    font-weight: 600;
+    align-self: flex-start;
+    padding: 6px 14px;
+    border: 1px solid var(--gold-deep);
+    border-radius: 2px;
+}
+
+.lp-parents-visual-title {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: clamp(32px, 3.5vw, 48px);
+    color: var(--ink);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    word-break: keep-all;
+}
+
+.lp-parents-visual-author {
+    text-align: right;
+}
+
+.lp-parents-visual-author small {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.lp-parents-visual-author strong {
+    font-family: var(--f-sans);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+}
+
+.lp-parents-content .eyebrow { margin-bottom: 24px; }
+
+.lp-parents-content h2 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: clamp(30px, 4vw, 52px);
+    color: var(--black);
+    line-height: 1.12;
+    margin-bottom: 28px;
+    letter-spacing: -0.022em;
+    word-break: keep-all;
+}
+
+.lp-parents-content h2 em {
+    font-style: normal;
+    color: var(--gold-deep);
+}
+
+.lp-parents-content > p {
+    font-family: var(--f-sans);
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 32px;
+}
+
+.lp-parents-list {
+    list-style: none;
+    margin-bottom: 32px;
+    padding: 0;
+}
+
+.lp-parents-list li {
+    font-family: var(--f-sans);
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--gold-line);
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.6;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.lp-parents-list li::before {
+    content: '✓';
+    color: var(--gold-deep);
+    font-weight: 800;
+    flex-shrink: 0;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+/* === BOOKS GALLERY === */
+.lp-books {
+    padding: 130px 0;
+    background: var(--gray-soft);
+}
+
+.lp-books-head {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.lp-books-head h2 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: clamp(30px, 3.6vw, 48px);
+    color: var(--black);
+    margin-top: 14px;
+    letter-spacing: -0.022em;
+    line-height: 1.2;
+    word-break: keep-all;
+}
+
+.lp-books-head h2 em {
+    font-style: normal;
+    color: var(--gold-deep);
+}
+
+.lp-books-head p {
+    font-family: var(--f-sans);
+    color: var(--text-soft);
+    margin-top: 14px;
+    font-size: 15px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.lp-books-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+}
+
+.lp-book {
+    background: var(--paper);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform var(--t) var(--ease);
+}
+
+.lp-book:hover { transform: translateY(-8px); }
+
+.lp-book .cover {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 3px 6px 6px 3px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 22px 18px 18px 24px;
+    color: var(--paper);
+    font-family: var(--f-sans);
+}
+
+.lp-book .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 8px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.3), transparent);
+    z-index: 2;
+}
+
+.lp-book .cover .tag {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    align-self: flex-start;
+    opacity: 0.65;
+    font-weight: 500;
+}
+
+.lp-book .cover .title {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1.2;
+    margin-top: 14px;
+    word-break: keep-all;
+    letter-spacing: -0.018em;
+}
+
+.lp-book .cover .author {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid currentColor;
+    width: 60%;
+    font-weight: 500;
+}
+
+.lp-book.medical .cover { background: linear-gradient(180deg, #1F2937 0%, #0F1A26 100%); }
+.lp-book.legal .cover { background: linear-gradient(180deg, #6B1F2A 0%, #3F0E15 100%); color: var(--gold-bright); }
+.lp-book.tax .cover { background: linear-gradient(180deg, #2F4439 0%, #1A2A22 100%); }
+.lp-book.education .cover { background: linear-gradient(180deg, #4A3147 0%, #2A1A28 100%); }
+.lp-book.parent .cover { background: linear-gradient(180deg, #F7EFE0 0%, #E8DCC4 100%); color: var(--ink); }
+.lp-book.parent .cover .tag { color: var(--gold-deep); }
+.lp-book.parent .cover .author { color: var(--gold-deep); }
+.lp-book.consultant .cover { background: linear-gradient(180deg, #2B2520 0%, #1A1A1A 100%); }
+.lp-book.executive .cover { background: linear-gradient(180deg, #D4A24C 0%, #A87938 100%); color: var(--ink); }
+.lp-book.executive .cover .tag { color: var(--ink); border-color: rgba(26,26,26,0.4); }
+.lp-book.executive .cover .author { color: var(--ink); }
+.lp-book.academic .cover { background: linear-gradient(180deg, #6E8294 0%, #4A5867 100%); }
+
+.lp-book .meta {
+    padding: 0 4px;
+}
+
+.lp-book .meta .label {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.lp-book .meta h4 {
+    font-family: var(--f-sans);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--black);
+    line-height: 1.35;
+    margin-bottom: 4px;
+    word-break: keep-all;
+}
+
+.lp-book .meta small {
+    font-family: var(--f-sans);
+    font-size: 12.5px;
+    color: var(--text-soft);
+    line-height: 1.6;
+}
+
+/* === BENEFITS / STRATEGY === */
+.lp-strategy {
+    padding: 130px 0;
+    background: linear-gradient(180deg, #1A1A1A 0%, #2B2520 100%);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+}
+
+.lp-strategy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(212, 162, 76, 0.1), transparent 55%);
+    pointer-events: none;
+}
+
+.lp-strategy-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 80px;
+    position: relative;
+    z-index: 2;
+    align-items: start;
+}
+
+.lp-strategy-content .eyebrow { color: var(--gold-bright); margin-bottom: 24px; }
+.lp-strategy-content .eyebrow::before { background: var(--gold-bright); }
+
+.lp-strategy-content h2 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: clamp(30px, 4vw, 52px);
+    color: var(--paper);
+    line-height: 1.12;
+    margin-bottom: 28px;
+    letter-spacing: -0.022em;
+    word-break: keep-all;
+}
+
+.lp-strategy-content h2 em {
+    font-style: normal;
+    color: var(--gold-bright);
+}
+
+.lp-strategy-content > p {
+    font-family: var(--f-sans);
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(252, 250, 246, 0.7);
+    margin-bottom: 0;
+}
+
+.lp-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: chk;
+    border-top: 1px solid rgba(252, 250, 246, 0.12);
+}
+
+.lp-checklist li {
+    counter-increment: chk;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(252, 250, 246, 0.12);
+    display: grid;
+    grid-template-columns: 60px 1fr 100px;
+    gap: 20px;
+    align-items: center;
+}
+
+.lp-checklist li::before {
+    content: counter(chk, decimal-leading-zero);
+    font-family: var(--f-mono);
+    font-size: 13px;
+    color: var(--gold-bright);
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+.lp-checklist .step {
+    font-family: var(--f-sans);
+    color: var(--paper);
+    font-size: 15.5px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    line-height: 1.5;
+}
+
+.lp-checklist .step small {
+    display: block;
+    font-family: var(--f-sans);
+    font-weight: 400;
+    font-size: 13px;
+    color: rgba(252, 250, 246, 0.55);
+    margin-top: 4px;
+}
+
+.lp-checklist .duration {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    color: var(--gold-bright);
+    letter-spacing: 0.1em;
+    text-align: right;
+    font-weight: 600;
+}
+
+/* === LEAD FORM === */
+.lp-lead {
+    padding: 130px 0;
+    background: var(--paper);
+}
+
+.lp-lead-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 64px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.lp-lead-info {
+    position: sticky;
+    top: 100px;
+    background: linear-gradient(180deg, #2B2520 0%, #1A1A1A 100%);
+    color: var(--paper);
+    padding: 44px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+}
+
+.lp-lead-info .eyebrow { color: var(--gold-bright); margin-bottom: 20px; }
+.lp-lead-info .eyebrow::before { background: var(--gold-bright); }
+
+.lp-lead-info h3 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: clamp(24px, 2.4vw, 32px);
+    color: var(--paper);
+    line-height: 1.18;
+    margin-bottom: 16px;
+    letter-spacing: -0.018em;
+    word-break: keep-all;
+}
+
+.lp-lead-info p {
+    font-family: var(--f-sans);
+    color: rgba(252, 250, 246, 0.7);
+    font-size: 14.5px;
+    line-height: 1.75;
+    margin-bottom: 28px;
+}
+
+.lp-lead-quick {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+    border-top: 1px solid rgba(252, 250, 246, 0.12);
+}
+
+.lp-lead-quick li {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(252, 250, 246, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.lp-lead-quick li .icon {
+    width: 38px;
+    height: 38px;
+    background: rgba(212, 162, 76, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-bright);
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.lp-lead-quick li small {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    margin-bottom: 3px;
+    font-weight: 600;
+}
+
+.lp-lead-quick li strong {
+    font-family: var(--f-sans);
+    font-weight: 600;
+    font-size: 14.5px;
+    color: var(--paper);
+    letter-spacing: -0.005em;
+}
+
+.lp-lead-info .kakao-cta {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: #FEE500;
+    color: #381F1F;
+    border-radius: 100px;
+    font-family: var(--f-sans);
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    transition: all var(--t-fast) var(--ease);
+    text-decoration: none;
+}
+
+.lp-lead-info .kakao-cta:hover {
+    background: #FFF03A;
+    transform: translateY(-2px);
+}
+
+.lp-lead-form {
+    background: var(--white);
+    padding: 48px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-line);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+}
+
+.lp-lead-form .eyebrow { color: var(--gold-deep); margin-bottom: 20px; }
+.lp-lead-form .eyebrow::before { background: var(--gold-deep); }
+
+.lp-lead-form h2 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: clamp(26px, 2.6vw, 36px);
+    color: var(--black);
+    margin-bottom: 12px;
+    letter-spacing: -0.022em;
+    line-height: 1.2;
+    word-break: keep-all;
+}
+
+.lp-lead-form > p.sub {
+    font-family: var(--f-sans);
+    color: var(--text-soft);
+    margin-bottom: 36px;
+    font-size: 14.5px;
+    line-height: 1.6;
+}
+
+.lp-form-row { margin-bottom: 22px; }
+.lp-form-row.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.lp-form-row label {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 9px;
+    font-weight: 600;
+}
+
+.lp-form-row label .req {
+    color: var(--gold-deep);
+}
+
+.lp-form-row input[type="text"],
+.lp-form-row input[type="tel"],
+.lp-form-row input[type="email"],
+.lp-form-row select,
+.lp-form-row textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1.5px solid var(--gray-line);
+    border-radius: var(--radius);
+    background: var(--paper);
+    font-family: var(--f-sans);
+    font-size: 14.5px;
+    color: var(--ink);
+    transition: all var(--t-fast) var(--ease);
+}
+
+.lp-form-row input:focus,
+.lp-form-row select:focus,
+.lp-form-row textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(212, 162, 76, 0.15);
+}
+
+.lp-form-row textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+/* Field type checkboxes */
+.lp-field-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.lp-field-options input { display: none; }
+
+.lp-field-options label {
+    display: block;
+    padding: 12px 8px;
+    border: 1.5px solid var(--gray-line);
+    border-radius: var(--radius);
+    text-align: center;
+    cursor: pointer;
+    font-family: var(--f-sans);
+    font-size: 12.5px;
+    color: var(--text);
+    transition: all var(--t-fast) var(--ease);
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-bottom: 0;
+    line-height: 1.3;
+}
+
+.lp-field-options label:hover {
+    border-color: var(--gold);
+    color: var(--ink);
+}
+
+.lp-field-options input:checked + label {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+    font-weight: 700;
+}
+
+.lp-form-agree {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--f-sans);
+    font-size: 12.5px;
+    color: var(--text);
+    margin-bottom: 24px;
+    cursor: pointer;
+}
+
+.lp-form-agree input {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--gold);
+}
+
+.lp-form-agree a {
+    color: var(--gold-deep);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.lp-submit {
+    width: 100%;
+    padding: 19px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: 100px;
+    font-family: var(--f-sans);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all var(--t-fast) var(--ease);
+}
+
+.lp-submit:hover {
+    background: var(--gold-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(168, 121, 56, 0.3);
+}
+
+/* === BOTTOM CTA === */
+.lp-bottom-cta {
+    padding: 90px 0;
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+}
+
+.lp-bottom-cta h2 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: clamp(28px, 3.6vw, 44px);
+    color: var(--paper);
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.022em;
+    word-break: keep-all;
+}
+
+.lp-bottom-cta p {
+    font-family: var(--f-sans);
+    color: rgba(252, 250, 246, 0.65);
+    font-size: 15px;
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
+
+.lp-bottom-cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.lp-bottom-cta-actions .btn-primary {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
+}
+.lp-bottom-cta-actions .btn-primary:hover {
+    background: var(--gold-bright);
+    border-color: var(--gold-bright);
+    color: var(--ink);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
+    .lp-hero { padding: 130px 0 70px; }
+    .lp-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+    .lp-why-grid { grid-template-columns: 1fr; gap: 16px; }
+    .lp-target-grid { grid-template-columns: repeat(2, 1fr); }
+    .lp-parents-grid { grid-template-columns: 1fr; gap: 48px; }
+    .lp-strategy-grid { grid-template-columns: 1fr; gap: 48px; }
+    .lp-books-grid { grid-template-columns: repeat(2, 1fr); }
+    .lp-lead-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .lp-lead-info {
+        position: static;
+        padding: 36px;
+    }
+    .lp-lead-form { padding: 36px; }
+}
+
+@media (max-width: 600px) {
+    .lp-hero { padding: 110px 0 56px; }
+    .lp-hero h1 { font-size: 36px; }
+    .lp-target-grid { grid-template-columns: 1fr; }
+    .lp-books-grid { grid-template-columns: 1fr; }
+    .lp-checklist li {
+        grid-template-columns: 40px 1fr;
+        gap: 14px;
+    }
+    .lp-checklist .duration {
+        grid-column: 2;
+        text-align: left;
+    }
+    .lp-form-row.split { grid-template-columns: 1fr; }
+    .lp-field-options { grid-template-columns: 1fr 1fr; }
+    .lp-lead-form, .lp-lead-info { padding: 28px 22px; }
+    .lp-parents-visual { padding: 36px 28px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.png" alt="The Culture N">
+            <span>The Culture <strong style="color:var(--gold-bright)">N</strong></span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="about.html" class="nav-link">CEO</a></li>
+            <li><a href="publishing.html" class="nav-link">Publishing</a></li>
+            <li><a href="professional.html" class="nav-link active">전문직 자서전</a></li>
+            <li><a href="lounge.html" class="nav-link">Lounge</a></li>
+            <li><a href="artists.html" class="nav-link">Artists</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <a href="#lead-form" class="nav-cta">무료 상담 →</a>
+        <div class="nav-toggle"><span></span><span></span><span></span></div>
+    </nav>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="lp-hero">
+    <div class="wrap">
+        <div class="lp-hero-grid">
+            <div class="lp-hero-left reveal">
+                <span class="lp-hero-tag">
+                    <span class="dot"></span>
+                    For Doctors · Lawyers · CPAs · Educators
+                </span>
+
+                <h1>
+                    당신의 30년,<br>
+                    <em>한 권의 책</em>이<br>
+                    가장 강력한 명함이 됩니다.
+                </h1>
+
+                <p class="lp-hero-lead">
+                    의료계·법조계·세무사·전문직·학원 원장님을 위한 자서전 출판 패키지.
+                    부모님의 인생을 한 권으로 남기는 <strong style="color:var(--gold-bright); font-weight:700">부모 자서전</strong> 컨셉부터,
+                    당신의 전문성을 브랜드로 만드는 CEO 자서전까지.
+                </p>
+
+                <div class="lp-hero-targets">
+                    <span class="lp-hero-target">의료계</span>
+                    <span class="lp-hero-target">법조계</span>
+                    <span class="lp-hero-target">세무사·회계사</span>
+                    <span class="lp-hero-target">학원 원장</span>
+                    <span class="lp-hero-target">전문직</span>
+                    <span class="lp-hero-target">부모 자서전</span>
+                </div>
+
+                <div class="lp-hero-actions">
+                    <a href="#lead-form" class="btn btn-primary btn-arrow">무료 상담 신청</a>
+                    <a href="http://pf.kakao.com/_QkZhd" class="btn btn-ghost">카톡 1:1 문의</a>
+                </div>
+            </div>
+
+            <div class="lp-hero-right reveal">
+                <div class="lp-hero-video">
+                    <iframe
+                        src="https://www.youtube.com/embed/0enqSh3FYuA?rel=0&modestbranding=1"
+                        title="전문직이 책을 써야 하는 이유"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== WHY ========== -->
+<section class="lp-why">
+    <div class="wrap">
+        <div class="lp-why-head reveal">
+            <div class="eyebrow" style="display:inline-flex; justify-content:center;">— Why a Book</div>
+            <h2>왜 지금, <em>전문직에게</em><br>책이 필요할까요?</h2>
+            <p>SNS·블로그·유튜브로는 전달되지 않는 깊이 있는 신뢰. 한 권의 책은 30년 경력을 한 시간 안에 전달합니다.</p>
+        </div>
+
+        <div class="lp-why-grid">
+            <div class="lp-why-card reveal">
+                <div class="lp-why-num">REASON 01</div>
+                <h3>책은 가장 비싼 명함입니다.</h3>
+                <p>유튜브 100시간보다 강력한 신뢰. 환자·의뢰인·학부모는 책 한 권을 가진 전문가를 다르게 봅니다. 같은 분야 동료들과 격이 달라지는 가장 빠른 방법.</p>
+            </div>
+            <div class="lp-why-card reveal">
+                <div class="lp-why-num">REASON 02</div>
+                <h3>30년의 노하우가 자산이 됩니다.</h3>
+                <p>매일 반복하는 진료·상담·강의가 흘러가는 시간이 아니라, 영원히 남는 지적 자산이 됩니다. 책은 당신의 전문성을 시간이 지나도 일하게 만듭니다.</p>
+            </div>
+            <div class="lp-why-card reveal">
+                <div class="lp-why-num">REASON 03</div>
+                <h3>유튜브·강연·언론이 따라옵니다.</h3>
+                <p>책은 모든 미디어 노출의 시작점. 출간과 동시에 인터뷰·기고·특강·방송 출연 기회가 따라옵니다. 책 한 권이 1년치 PR 효과를 만듭니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== TARGETS ========== -->
+<section class="lp-targets">
+    <div class="wrap">
+        <div class="lp-targets-head reveal">
+            <div class="eyebrow" style="display:inline-flex; justify-content:center;">— Who It's For</div>
+            <h2>이런 분들을 위한 <em>맞춤 출판</em>입니다.</h2>
+            <p>5가지 분야의 전문가에게 가장 적합한 자서전·브랜딩북 컨셉을 제안합니다.</p>
+        </div>
+
+        <div class="lp-target-grid">
+            <div class="lp-target-card reveal">
+                <div class="lp-target-icon">🏥</div>
+                <h4>의료계</h4>
+                <p>의사·치과·한의사·약사. 환자 신뢰와 전문성을 글로 풀어냅니다.</p>
+                <span class="lp-target-tag">Medical</span>
+            </div>
+            <div class="lp-target-card reveal">
+                <div class="lp-target-icon">⚖</div>
+                <h4>법조계</h4>
+                <p>변호사·법무사. 복잡한 법을 일반인에게 풀어 설명하는 책.</p>
+                <span class="lp-target-tag">Legal</span>
+            </div>
+            <div class="lp-target-card reveal">
+                <div class="lp-target-icon">💼</div>
+                <h4>세무사·회계사</h4>
+                <p>세무·회계·재무 컨설팅 노하우를 콘텐츠 자산으로.</p>
+                <span class="lp-target-tag">CPA · Tax</span>
+            </div>
+            <div class="lp-target-card reveal">
+                <div class="lp-target-icon">📚</div>
+                <h4>학원 원장</h4>
+                <p>입시·교육 노하우. 학부모가 먼저 찾는 원장님으로.</p>
+                <span class="lp-target-tag">Education</span>
+            </div>
+            <div class="lp-target-card reveal">
+                <div class="lp-target-icon">👴</div>
+                <h4>부모 자서전</h4>
+                <p>부모님이 살아오신 시간을 가장 따뜻하게 기록하는 선물.</p>
+                <span class="lp-target-tag">Parents</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== PARENTS BIO HIGHLIGHT ========== -->
+<section class="lp-parents">
+    <div class="wrap">
+        <div class="lp-parents-grid">
+            <div class="lp-parents-visual reveal">
+                <div class="lp-parents-visual-tag">PARENTS · MEMOIR</div>
+                <div class="lp-parents-visual-title">
+                    아버지의<br>
+                    한평생,<br>
+                    한 권의 책으로.
+                </div>
+                <div class="lp-parents-visual-author">
+                    <small>The Culture N</small>
+                    <strong>가족이 함께 만든 자서전</strong>
+                </div>
+            </div>
+
+            <div class="lp-parents-content reveal">
+                <span class="eyebrow">— Special Edition</span>
+                <h2>부모님이 살아오신 인생을<br><em>가장 값진 선물</em>로.</h2>
+
+                <p>
+                    더컬쳐앤의 <strong>부모 자서전 패키지</strong>는, 60·70·80대 부모님의 인생을 가족이 함께 인터뷰하고 글로 옮기는 따뜻한 프로젝트입니다.
+                    전문 작가가 인터뷰부터 집필·편집까지 책임지고, 가족만의 스토리를 한 권의 책으로 완성합니다.
+                </p>
+
+                <ul class="lp-parents-list">
+                    <li>전문 작가 1:1 인터뷰 (2~3회 · 자택 방문 가능)</li>
+                    <li>옛 사진·문서 디지털화 + 책 내지에 수록</li>
+                    <li>가족 인터뷰 별도 챕터 구성 (자녀·손주의 글)</li>
+                    <li>한정판 30~100부 인쇄 · 양장본 옵션</li>
+                    <li>출간 후 가족 북토크 라운지 무료 대관</li>
+                    <li>부모님 칠순·팔순·구순 기념 헌정용 추천</li>
+                </ul>
+
+                <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                    <a href="#lead-form" class="btn btn-primary btn-arrow">부모 자서전 상담</a>
+                    <a href="http://pf.kakao.com/_QkZhd" class="btn btn-outline">카톡으로 문의</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== BOOKS GALLERY ========== -->
+<section class="lp-books">
+    <div class="wrap">
+        <div class="lp-books-head reveal">
+            <span class="eyebrow" style="display:inline-flex; justify-content:center;">— Selected Works</span>
+            <h2>전문직이 만든 <em>실제 책들</em>.</h2>
+            <p>의료·법조·세무·교육·부모 자서전까지 — 더컬쳐앤이 함께 만든 출판 사례.</p>
+        </div>
+
+        <div class="lp-books-grid">
+            <div class="lp-book medical reveal">
+                <div class="cover">
+                    <span class="tag">Medical</span>
+                    <div>
+                        <div class="title">25년 진료실의<br>이야기</div>
+                        <div class="author">DR · MEMOIR</div>
+                    </div>
+                </div>
+                <div class="meta">
+                    <div class="label">— 내과 원장 자서전</div>
+                    <h4>"환자에게 받은 편지가, 한 권의 책이 되었습니다"</h4>
+                    <small>의료 · 자서전 · 2024</small>
+                </div>
+            </div>
+
+            <div class="lp-book legal reveal">
+                <div class="cover">
+                    <span class="tag">Legal</span>
+                    <div>
+                        <div class="title">변호사가<br>지킨 진실</div>
+                        <div class="author">LAW · ESSAY</div>
+                    </div>
+                </div>
+                <div class="meta">
+                    <div class="label">— 변호사 칼럼집</div>
+                    <h4>법정에서 만난 사람들의 이야기</h4>
+                    <small>법조 · 에세이 · 2024</small>
+                </div>
+            </div>
+
+            <div class="lp-book tax reveal">
+                <div class="cover">
+                    <span class="tag">CPA</span>
+                    <div>
+                        <div class="title">절세,<br>이렇게 준비하세요</div>
+                        <div class="author">TAX · GUIDE</div>
+                    </div>
+                </div>
+                <div class="meta">
+                    <div class="label">— 세무사 실용서</div>
+                    <h4>고객이 가장 많이 묻는 절세 노하우 100</h4>
+                    <small>세무 · 실용 · 2025</small>
+                </div>
+            </div>
+
+            <div class="lp-book education reveal">
+                <div class="cover">
+                    <span class="tag">Education</span>
+                    <div>
+                        <div class="title">대치동<br>20년의 기록</div>
+                        <div class="author">EDU · MEMOIR</div>
+                    </div>
+                </div>
+                <div class="meta">
+                    <div class="label">— 학원 원장 자서전</div>
+                    <h4>입시 현장에서 본 진짜 교육 이야기</h4>
+                    <small>교육 · 자서전 · 2025</small>
+                </div>
+            </div>
+
+            <div class="lp-book parent reveal">
+                <div class="cover">
+                    <span class="tag">Parents</span>
+                    <div>
+                        <div class="title">아버지의<br>여든 살</div>
+                        <div class="author">FAMILY · MEMOIR</div>
+                    </div>
+                </div>
+                <div class="meta">
+                    <div class="label">— 부모 자서전</div>
+                    <h4>"칠순 선물로, 아버지 인생을 한 권에 담았습니다"</h4>
+                    <small>가족 · 헌정판 · 2024</small>
+                </div>
+            </div>
+
+            <div class="lp-book consultant reveal">
+                <div class="cover">
+                    <span class="tag">Consulting</span>
+                    <div>
+                        <div class="title">컨설턴트의<br>현장 노트</div>
+                        <div class="author">BIZ · ESSAY</div>
+                    </div>
+                </div>
+                <div class="meta">
+                    <div class="label">— 경영 컨설턴트</div>
+                    <h4>1,000개 회사를 만나며 배운 것</h4>
+                    <small>경영 · 자기계발 · 2024</small>
+                </div>
+            </div>
+
+            <div class="lp-book executive reveal">
+                <div class="cover">
+                    <span class="tag">CEO</span>
+                    <div>
+                        <div class="title">한의원<br>경영의 정석</div>
+                        <div class="author">CEO · MEMOIR</div>
+                    </div>
+                </div>
+                <div class="meta">
+                    <div class="label">— 한의원 원장</div>
+                    <h4>3평 한의원에서 5개 지점까지</h4>
+                    <small>의료 · CEO 자서전 · 2025</small>
+                </div>
+            </div>
+
+            <div class="lp-book academic reveal">
+                <div class="cover">
+                    <span class="tag">Academic</span>
+                    <div>
+                        <div class="title">교실 밖<br>교육학</div>
+                        <div class="author">PROF · INSIGHT</div>
+                    </div>
+                </div>
+                <div class="meta">
+                    <div class="label">— 교육 전문가</div>
+                    <h4>학부모와 학생, 교사를 위한 33가지 이야기</h4>
+                    <small>교육 · 인사이트 · 2025</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== STRATEGY / CHECKLIST ========== -->
+<section class="lp-strategy">
+    <div class="wrap">
+        <div class="lp-strategy-grid">
+            <div class="lp-strategy-content reveal">
+                <span class="eyebrow">— The Culture N Strategy</span>
+                <h2>의뢰부터 출간까지<br><em>12주.</em></h2>
+                <p>
+                    백지에서 시작해도 괜찮습니다. 매 단계마다 1:1 컨펌으로 진행되며,
+                    바쁜 전문직 일정에 맞춰 모든 작업이 진행됩니다.
+                    인터뷰 · 작가 매칭 · 디자인 · 인쇄 · 유통까지 한 곳에서.
+                </p>
+            </div>
+
+            <ol class="lp-checklist reveal">
+                <li>
+                    <div class="step">무료 상담 & 컨셉 기획 <small>책의 목적·독자·메시지 확정</small></div>
+                    <div class="duration">D ─ 7</div>
+                </li>
+                <li>
+                    <div class="step">목차 설계 & 계약 <small>전체 구조 확정 후 정식 계약</small></div>
+                    <div class="duration">D ─ 3</div>
+                </li>
+                <li>
+                    <div class="step">전문 작가 인터뷰 (2~3회) <small>자택·사무실 방문 가능</small></div>
+                    <div class="duration">D-DAY</div>
+                </li>
+                <li>
+                    <div class="step">원고 집필 · 윤문 <small>고객 단계별 컨펌</small></div>
+                    <div class="duration">D + 30</div>
+                </li>
+                <li>
+                    <div class="step">편집 · 표지 디자인 <small>3가지 시안 제공</small></div>
+                    <div class="duration">D + 60</div>
+                </li>
+                <li>
+                    <div class="step">인쇄 · ISBN 등록 <small>국립중앙도서관 정식 등록</small></div>
+                    <div class="duration">D + 75</div>
+                </li>
+                <li>
+                    <div class="step">전국 서점 유통 + SNS 마케팅 <small>교보·예스24·알라딘</small></div>
+                    <div class="duration">D + 84</div>
+                </li>
+                <li>
+                    <div class="step">출간 기념회 (라운지 무료 제공) <small>북토크·기자간담회 옵션</small></div>
+                    <div class="duration">D + 90</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<!-- ========== LEAD FORM ========== -->
+<section class="lp-lead" id="lead-form">
+    <div class="wrap">
+        <div class="lp-lead-grid">
+
+            <aside class="lp-lead-info reveal">
+                <span class="eyebrow">— Free Consulting</span>
+                <h3>30분 내,<br>대표가 직접 회신드립니다.</h3>
+                <p>지금 신청해주시면 평일 30분 · 주말 24시간 내로 카카오톡 회신드립니다. 출판 가능 여부와 예상 비용·일정을 솔직하게 알려드립니다.</p>
+
+                <ul class="lp-lead-quick">
+                    <li>
+                        <div class="icon">📞</div>
+                        <div>
+                            <small>Phone</small>
+                            <strong>02-734-3827</strong>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">✉</div>
+                        <div>
+                            <small>Email</small>
+                            <strong>dreamwithessmarketing<br>@gmail.com</strong>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">📍</div>
+                        <div>
+                            <small>Office</small>
+                            <strong>서울 강남 · 종각 · 마곡</strong>
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="http://pf.kakao.com/_QkZhd" class="kakao-cta">💬 카카오톡으로 바로 상담</a>
+            </aside>
+
+            <form class="lp-lead-form reveal"
+                  action="https://formspree.io/f/manvjqnv"
+                  method="POST"
+                  novalidate>
+                <span class="eyebrow">— Send Inquiry</span>
+                <h2>무료 출판 상담 신청</h2>
+                <p class="sub">간단한 정보만 남겨주시면 30분 내 1:1 회신드립니다. 모든 정보는 상담 목적 외 사용되지 않습니다.</p>
+
+                <input type="hidden" name="_subject" value="[더컬쳐앤] 전문직 자서전 출판 상담 문의">
+                <input type="hidden" name="source" value="professional-landing">
+
+                <div class="lp-form-row split">
+                    <div>
+                        <label>성함 <span class="req">*</span></label>
+                        <input type="text" name="name" required placeholder="홍길동">
+                    </div>
+                    <div>
+                        <label>연락처 <span class="req">*</span></label>
+                        <input type="tel" name="phone" required placeholder="010-0000-0000">
+                    </div>
+                </div>
+
+                <div class="lp-form-row">
+                    <label>이메일</label>
+                    <input type="email" name="email" placeholder="example@email.com">
+                </div>
+
+                <div class="lp-form-row">
+                    <label>분야 선택 <span class="req">*</span></label>
+                    <div class="lp-field-options">
+                        <input type="radio" name="field" id="f-medical" value="의료계" required>
+                        <label for="f-medical">의료계</label>
+
+                        <input type="radio" name="field" id="f-legal" value="법조계">
+                        <label for="f-legal">법조계</label>
+
+                        <input type="radio" name="field" id="f-tax" value="세무·회계">
+                        <label for="f-tax">세무·회계</label>
+
+                        <input type="radio" name="field" id="f-edu" value="학원·교육">
+                        <label for="f-edu">학원·교육</label>
+
+                        <input type="radio" name="field" id="f-parents" value="부모 자서전">
+                        <label for="f-parents">부모 자서전</label>
+
+                        <input type="radio" name="field" id="f-other" value="기타">
+                        <label for="f-other">기타</label>
+                    </div>
+                </div>
+
+                <div class="lp-form-row">
+                    <label>출간 희망 시기</label>
+                    <select name="timing">
+                        <option value="3개월 이내">3개월 이내</option>
+                        <option value="6개월 이내">6개월 이내</option>
+                        <option value="1년 이내" selected>1년 이내</option>
+                        <option value="아직 미정">아직 미정 · 일단 상담만</option>
+                    </select>
+                </div>
+
+                <div class="lp-form-row">
+                    <label>어떤 책을 만들고 싶으신가요?</label>
+                    <textarea name="message" placeholder="간단한 책의 컨셉·목적·독자층 등을 자유롭게 적어주세요. 예) 30년 임상 경험을 환자들에게 풀어주는 건강 가이드북. 출간 후 강연·유튜브와 연계 희망."></textarea>
+                </div>
+
+                <label class="lp-form-agree">
+                    <input type="checkbox" name="privacy_agree" required>
+                    <span>개인정보 수집·이용 및 마케팅 정보 수신에 동의합니다. <a href="#">자세히 보기</a></span>
+                </label>
+
+                <button type="submit" class="lp-submit">무료 상담 신청하기 →</button>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<!-- ========== BOTTOM CTA ========== -->
+<section class="lp-bottom-cta">
+    <div class="wrap">
+        <h2>당신의 30년,<br>한 권의 브랜드 자산으로.</h2>
+        <p>지금 1통의 카톡이, 평생 남는 책 한 권의 시작입니다.</p>
+        <div class="lp-bottom-cta-actions">
+            <a href="#lead-form" class="btn btn-primary btn-arrow">무료 상담 신청</a>
+            <a href="http://pf.kakao.com/_QkZhd" class="btn btn-ghost">카카오톡 문의</a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+    <div class="wrap">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo">
+                    <img src="assets/logo.png" alt="The Culture N">
+                    <span>The Culture <strong style="color:var(--gold-bright)">N</strong></span>
+                </a>
+                <p class="footer-tagline">LSJ Company · 주식회사 더컬쳐앤<br>전문직 자서전 · 부모 자서전<br>All in One 출판 컴퍼니.</p>
+                <div class="footer-contact">02-734-3827</div>
+                <div class="footer-email">dreamwithessmarketing@gmail.com</div>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="publishing.html">도서출판</a></li>
+                    <li><a href="professional.html">전문직 자서전</a></li>
+                    <li><a href="lounge.html">라운지 대관</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">CEO 이서진</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://instagram.com/the_culture_n_lounge">Instagram</a></li>
+                    <li><a href="http://pf.kakao.com/_QkZhd">KakaoTalk</a></li>
+                    <li><a href="https://blog.naver.com/1994seojin">Naver Blog</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 LSJ Company · 주식회사 더컬쳐앤. All rights reserved.</p>
+            <div class="social-row">
+                <a href="https://instagram.com/the_culture_n_lounge" aria-label="Instagram">IG</a>
+                <a href="#" aria-label="YouTube">YT</a>
+                <a href="https://blog.naver.com/1994seojin" aria-label="Blog">BL</a>
+                <a href="http://pf.kakao.com/_QkZhd" aria-label="Kakao">KK</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="http://pf.kakao.com/_QkZhd" class="fab" aria-label="카카오톡 문의">Kakao</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
