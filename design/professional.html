@@ -2,7 +2,10 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: dark)">
+<meta name="format-detection" content="telephone=no">
 <title>전문직 자서전 출판 · 의료·법조·세무·교육 | 더컬쳐앤 The Culture N</title>
 <meta name="description" content="의료계·법조계·세무사·전문직·학원 원장님을 위한 자서전 출판 패키지. 부모님 자서전 컨셉. 30년의 노하우를 한 권의 브랜드 자산으로. 무료 상담 신청.">
 <meta property="og:title" content="전문직을 위한 책, 한 권의 브랜드 자산이 됩니다 | 더컬쳐앤">
@@ -256,17 +259,21 @@ body { background: var(--paper); }
 .lp-why-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 20px;
+    align-items: stretch;
 }
 
 .lp-why-card {
-    padding: 44px 32px;
+    padding: 40px 30px;
     background: var(--white);
     border: 1px solid var(--gray-line);
     border-radius: var(--radius-lg);
     transition: all var(--t-fast) var(--ease);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .lp-why-card::before {
@@ -356,17 +363,22 @@ body { background: var(--paper); }
 .lp-target-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
+    gap: 14px;
+    align-items: stretch;
 }
 
 .lp-target-card {
     background: var(--paper);
     border: 1px solid var(--gold-line);
     border-radius: var(--radius-lg);
-    padding: 32px 20px;
+    padding: 28px 18px 24px;
     text-align: center;
     transition: all var(--t-fast) var(--ease);
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 
 .lp-target-card:hover {
@@ -412,6 +424,7 @@ body { background: var(--paper); }
     margin-bottom: 16px;
     transition: color var(--t-fast) var(--ease);
     word-break: keep-all;
+    flex: 1;  /* push tag to bottom */
 }
 
 .lp-target-tag {
@@ -427,6 +440,7 @@ body { background: var(--paper); }
     border-radius: 100px;
     transition: all var(--t-fast) var(--ease);
     font-weight: 600;
+    margin-top: auto;
 }
 
 /* === PARENTS BIOGRAPHY HIGHLIGHT === */
@@ -605,7 +619,8 @@ body { background: var(--paper); }
 .lp-books-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
+    gap: 24px;
+    align-items: stretch;
 }
 
 .lp-book {
@@ -613,6 +628,9 @@ body { background: var(--paper); }
     border-radius: var(--radius);
     overflow: hidden;
     transition: transform var(--t) var(--ease);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .lp-book:hover { transform: translateY(-8px); }
@@ -692,6 +710,9 @@ body { background: var(--paper); }
 
 .lp-book .meta {
     padding: 0 4px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .lp-book .meta .label {
@@ -710,8 +731,9 @@ body { background: var(--paper); }
     font-size: 15px;
     color: var(--black);
     line-height: 1.35;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     word-break: keep-all;
+    flex: 1;
 }
 
 .lp-book .meta small {
@@ -719,6 +741,7 @@ body { background: var(--paper); }
     font-size: 12.5px;
     color: var(--text-soft);
     line-height: 1.6;
+    margin-top: auto;
 }
 
 /* === BENEFITS / STRATEGY === */
@@ -1154,19 +1177,25 @@ body { background: var(--paper); }
 
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
-    .lp-hero { padding: 130px 0 70px; }
+    .lp-hero { padding: 120px 0 64px; }
     .lp-hero-grid {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 40px;
     }
-    .lp-why-grid { grid-template-columns: 1fr; gap: 16px; }
-    .lp-target-grid { grid-template-columns: repeat(2, 1fr); }
-    .lp-parents-grid { grid-template-columns: 1fr; gap: 48px; }
-    .lp-strategy-grid { grid-template-columns: 1fr; gap: 48px; }
-    .lp-books-grid { grid-template-columns: repeat(2, 1fr); }
+    .lp-why-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    .lp-why-grid .lp-why-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+    }
+    .lp-target-grid { grid-template-columns: repeat(3, 1fr); }
+    .lp-parents-grid { grid-template-columns: 1fr; gap: 40px; }
+    .lp-strategy-grid { grid-template-columns: 1fr; gap: 40px; }
+    .lp-books-grid { grid-template-columns: repeat(3, 1fr); }
     .lp-lead-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 28px;
     }
     .lp-lead-info {
         position: static;
@@ -1175,23 +1204,90 @@ body { background: var(--paper); }
     .lp-lead-form { padding: 36px; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .lp-hero { padding: 110px 0 56px; }
-    .lp-hero h1 { font-size: 36px; }
-    .lp-target-grid { grid-template-columns: 1fr; }
-    .lp-books-grid { grid-template-columns: 1fr; }
-    .lp-checklist li {
-        grid-template-columns: 40px 1fr;
-        gap: 14px;
+    .lp-hero h1 {
+        font-size: clamp(30px, 8.5vw, 44px);
+        line-height: 1.12;
     }
+    .lp-hero-lead { font-size: 15px; line-height: 1.7; margin-bottom: 28px; }
+    .lp-hero-tag { font-size: 10px; padding: 7px 13px; margin-bottom: 22px; }
+    .lp-hero-targets { gap: 6px; margin-bottom: 28px; }
+    .lp-hero-target { padding: 6px 12px; font-size: 12px; }
+    .lp-hero-actions { flex-direction: column; align-items: stretch; }
+    .lp-hero-actions .btn { width: 100%; }
+
+    .lp-why,
+    .lp-targets,
+    .lp-parents,
+    .lp-books,
+    .lp-strategy,
+    .lp-lead { padding: 80px 0; }
+
+    .lp-why-grid { grid-template-columns: 1fr; gap: 14px; }
+    .lp-why-grid .lp-why-card:last-child:nth-child(odd) { grid-column: auto; }
+    .lp-why-card { padding: 32px 26px; }
+    .lp-why-card h3 { font-size: 20px; }
+    .lp-why-card p { font-size: 14px; }
+
+    .lp-target-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .lp-target-card { padding: 24px 16px 22px; }
+    .lp-target-icon { font-size: 28px; }
+    .lp-target-card h4 { font-size: 17px; }
+    .lp-target-card p { font-size: 12px; }
+
+    .lp-parents-content h2 { font-size: clamp(26px, 7vw, 38px); }
+    .lp-parents-content > p { font-size: 15px; line-height: 1.75; }
+    .lp-parents-content .btn { width: 100%; }
+    .lp-parents-content > div:last-child {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .lp-books-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .lp-strategy-content h2 { font-size: clamp(26px, 7vw, 40px); }
+    .lp-strategy-content > p { font-size: 14.5px; }
+    .lp-checklist li {
+        grid-template-columns: 42px 1fr;
+        gap: 14px;
+        padding: 18px 0;
+    }
+    .lp-checklist .step { font-size: 14px; }
+    .lp-checklist .step small { font-size: 12px; }
     .lp-checklist .duration {
         grid-column: 2;
         text-align: left;
+        font-size: 11px;
+        margin-top: 4px;
     }
-    .lp-form-row.split { grid-template-columns: 1fr; }
+
+    .lp-lead-info {
+        padding: 32px 26px;
+    }
+    .lp-lead-info h3 { font-size: 22px; }
+    .lp-lead-info p { font-size: 14px; }
+    .lp-lead-form { padding: 32px 26px; }
+    .lp-lead-form h2 { font-size: clamp(22px, 6vw, 30px); }
+    .lp-form-row.split { grid-template-columns: 1fr; gap: 0; }
+    .lp-form-row.split .form-row + div { margin-top: 22px; }
     .lp-field-options { grid-template-columns: 1fr 1fr; }
-    .lp-lead-form, .lp-lead-info { padding: 28px 22px; }
-    .lp-parents-visual { padding: 36px 28px; }
+
+    .lp-bottom-cta { padding: 70px 0; }
+    .lp-bottom-cta h2 { font-size: clamp(24px, 7vw, 36px); }
+    .lp-bottom-cta-actions { flex-direction: column; align-items: stretch; }
+    .lp-bottom-cta-actions .btn { width: 100%; }
+
+    .lp-parents-visual { padding: 36px 28px; aspect-ratio: 3/4; }
+    .lp-parents-visual-title { font-size: clamp(28px, 7.5vw, 40px); }
+}
+
+@media (max-width: 480px) {
+    .lp-target-grid { grid-template-columns: 1fr; }
+    .lp-books-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+    .lp-field-options { grid-template-columns: 1fr; }
+    .lp-hero-tag { font-size: 9.5px; letter-spacing: 0.15em; }
+    .lp-hero-video { aspect-ratio: 16/10; }
 }
 </style>
 </head>

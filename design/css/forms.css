@@ -236,18 +236,43 @@
     border-color: var(--ink, #2B2520);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .privacy-modal {
+        padding: 12px;
+    }
     .privacy-modal-dialog {
-        max-height: 92vh;
+        max-height: calc(100vh - 24px);
+        max-height: calc(100dvh - 24px);
     }
     .privacy-modal-head {
-        padding: 22px 20px 16px;
+        padding: 20px 20px 16px;
+        gap: 16px;
     }
     .privacy-modal-head h2 {
-        font-size: 19px;
+        font-size: 18px;
+    }
+    .privacy-modal-close {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
     }
     .privacy-modal-body {
         padding: 20px;
+    }
+    .privacy-modal-body h3 {
+        font-size: 14px;
+        margin: 18px 0 8px;
+    }
+    .privacy-modal-body p,
+    .privacy-modal-body li {
+        font-size: 13px;
+    }
+    .privacy-modal-body table {
+        font-size: 12px;
+    }
+    .privacy-modal-body th,
+    .privacy-modal-body td {
+        padding: 8px 10px;
     }
     .privacy-modal-foot {
         padding: 14px 20px;
@@ -255,6 +280,17 @@
     }
     .privacy-modal-foot button {
         width: 100%;
+        min-height: 46px;
+    }
+}
+
+/* Toast positioning - account for FAB stack */
+@media (max-width: 768px) {
+    .form-toast {
+        top: calc(16px + env(safe-area-inset-top, 0));
+        max-width: calc(100% - 24px);
+        font-size: 13px;
+        padding: 12px 18px;
     }
 }
 

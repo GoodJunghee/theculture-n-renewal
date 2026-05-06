@@ -2,7 +2,10 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: dark)">
+<meta name="format-detection" content="telephone=no">
 <title>Portfolio · 더컬쳐앤 The Culture N</title>
 <meta name="description" content="더컬쳐앤이 만든 100권의 책, 공연, 파티, 갤러리. 다양한 분야의 결과물을 한 곳에서 확인하세요.">
 <link rel="icon" type="image/png" href="assets/logo.png">
@@ -128,6 +131,21 @@
 
 @media (max-width: 1024px) {
     .featured-spread { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
+}
+
+@media (max-width: 768px) {
+    .featured-spread { padding: 32px 24px; gap: 28px; margin-bottom: 56px; }
+    .featured-spread h2 { font-size: clamp(26px, 7.5vw, 40px); margin-bottom: 18px; }
+    .featured-spread p { font-size: 15px; line-height: 1.7; margin-bottom: 24px; }
+    .featured-spread .btn { width: 100%; }
+    .featured-cover {
+        font-size: 22px;
+        padding: 24px;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    .port-hero-counter { gap: 32px; margin-top: 36px; padding-top: 28px; }
+    .port-counter-item .num { font-size: 32px; }
 }
 </style>
 </head>
