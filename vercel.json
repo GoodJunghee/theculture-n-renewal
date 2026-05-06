@@ -19,6 +19,8 @@
     { "source": "/professional", "destination": "/design/professional.html" },
     { "source": "/professional.html", "destination": "/design/professional.html" },
     { "source": "/landing", "destination": "/design/professional.html" },
+    { "source": "/admin", "destination": "/design/admin.html" },
+    { "source": "/admin.html", "destination": "/design/admin.html" },
     { "source": "/css/:path*", "destination": "/design/css/:path*" },
     { "source": "/js/:path*", "destination": "/design/js/:path*" },
     { "source": "/assets/:path*", "destination": "/design/assets/:path*" }
@@ -28,6 +30,20 @@
       "source": "/design/assets/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/admin",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" },
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
     }
   ]

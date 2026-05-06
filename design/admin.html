@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin · 더컬쳐앤 The Culture N</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="css/base.css">
+<style>
+body { background: var(--gray-soft); }
+
+.adm-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === Login === */
+.adm-login {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+}
+
+.adm-login-card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--paper);
+    border-radius: var(--radius-lg);
+    padding: 48px 40px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--gray-line);
+}
+
+.adm-login-card .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 32px;
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--black);
+    letter-spacing: -0.01em;
+}
+
+.adm-login-card .logo-row img { width: 32px; height: 32px; }
+
+.adm-login-card h1 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--black);
+    margin-bottom: 10px;
+    letter-spacing: -0.022em;
+}
+
+.adm-login-card p {
+    font-family: var(--f-sans);
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
+.adm-login-card label {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.adm-login-card input[type="password"] {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid var(--gray-line);
+    border-radius: var(--radius);
+    background: var(--paper);
+    font-family: var(--f-sans);
+    font-size: 15px;
+    color: var(--ink);
+    transition: all 0.2s ease;
+    margin-bottom: 8px;
+}
+
+.adm-login-card input[type="password"]:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(212, 162, 76, 0.15);
+}
+
+.adm-login-card .err {
+    color: #B23B3B;
+    font-size: 13px;
+    margin: 10px 0 0;
+    display: none;
+    font-family: var(--f-sans);
+}
+
+.adm-login-card .err.is-show {
+    display: block;
+}
+
+.adm-login-card button {
+    margin-top: 18px;
+    width: 100%;
+    padding: 16px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: 100px;
+    font-family: var(--f-sans);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.adm-login-card button:hover {
+    background: var(--gold-deep);
+    transform: translateY(-2px);
+}
+
+.adm-login-card .hint {
+    margin-top: 20px;
+    padding: 14px 16px;
+    background: var(--gold-soft);
+    border-left: 3px solid var(--gold);
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--ink);
+    border-radius: 4px;
+    font-family: var(--f-sans);
+}
+
+/* === Dashboard === */
+.adm-top {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 18px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.adm-top .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+}
+
+.adm-top .brand img {
+    width: 30px; height: 30px;
+    filter: brightness(0) invert(1);
+}
+
+.adm-top .brand small {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--gold-bright);
+    margin-left: 12px;
+    padding-left: 12px;
+    border-left: 1px solid rgba(252, 250, 246, 0.2);
+    font-weight: 500;
+}
+
+.adm-top-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.adm-top button {
+    padding: 8px 16px;
+    background: rgba(252, 250, 246, 0.08);
+    color: var(--paper);
+    border: 1px solid rgba(252, 250, 246, 0.2);
+    border-radius: 100px;
+    font-family: var(--f-sans);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.adm-top button:hover {
+    background: rgba(252, 250, 246, 0.16);
+    border-color: var(--gold-bright);
+}
+
+.adm-top button.danger {
+    background: rgba(178, 59, 59, 0.16);
+    border-color: rgba(178, 59, 59, 0.4);
+    color: #F7C8C8;
+}
+
+.adm-top .storage-tag {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--gold-bright);
+    text-transform: uppercase;
+}
+
+/* === Stats === */
+.adm-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--gray-line);
+    margin: 0 0 24px;
+}
+
+.adm-stat {
+    background: var(--paper);
+    padding: 28px 24px;
+    text-align: center;
+    font-family: var(--f-sans);
+}
+
+.adm-stat .num {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: 36px;
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+}
+
+.adm-stat .lbl {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray);
+    font-weight: 600;
+}
+
+/* === Filters === */
+.adm-toolbar {
+    padding: 18px 28px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--gray-line);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.adm-toolbar input[type="text"],
+.adm-toolbar select {
+    padding: 9px 14px;
+    border: 1.5px solid var(--gray-line);
+    border-radius: var(--radius);
+    background: var(--paper);
+    font-family: var(--f-sans);
+    font-size: 13.5px;
+    color: var(--ink);
+    transition: all 0.2s ease;
+}
+
+.adm-toolbar input[type="text"] {
+    flex: 1;
+    min-width: 240px;
+}
+
+.adm-toolbar input:focus, .adm-toolbar select:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.adm-toolbar .count {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--text-soft);
+    letter-spacing: 0.12em;
+    margin-left: auto;
+}
+
+/* === Table === */
+.adm-main {
+    padding: 0 28px 80px;
+    max-width: 1480px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.adm-table-wrap {
+    background: var(--paper);
+    border: 1px solid var(--gray-line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 24px;
+}
+
+.adm-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--f-sans);
+}
+
+.adm-table thead {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.adm-table th {
+    text-align: left;
+    padding: 14px 16px;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    font-weight: 600;
+    border-bottom: 1px solid rgba(252, 250, 246, 0.1);
+    white-space: nowrap;
+}
+
+.adm-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--gray-line);
+    font-size: 13.5px;
+    color: var(--ink);
+    vertical-align: top;
+    font-family: var(--f-sans);
+}
+
+.adm-table tbody tr:hover {
+    background: var(--gold-soft);
+}
+
+.adm-table .submitted-at {
+    font-family: var(--f-mono);
+    font-size: 11.5px;
+    color: var(--text-soft);
+    white-space: nowrap;
+}
+
+.adm-table .name {
+    font-weight: 700;
+    color: var(--black);
+}
+
+.adm-table .field-tag {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 100px;
+    background: var(--gold-soft);
+    color: var(--gold-deep);
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 1px solid rgba(168, 121, 56, 0.25);
+}
+
+.adm-table .source-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--gray-bg);
+    color: var(--text-soft);
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--gray-line);
+}
+
+.adm-table .msg-cell {
+    max-width: 320px;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+.adm-table a {
+    color: var(--gold-deep);
+    font-weight: 600;
+    text-decoration: none;
+}
+.adm-table a:hover { text-decoration: underline; }
+
+.adm-table .row-actions button {
+    background: transparent;
+    border: 1px solid var(--gray-line);
+    color: var(--text-soft);
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-family: var(--f-sans);
+    font-size: 11.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.adm-table .row-actions button:hover {
+    background: #B23B3B;
+    color: white;
+    border-color: #B23B3B;
+}
+
+.adm-empty {
+    padding: 80px 24px;
+    text-align: center;
+}
+
+.adm-empty .icon {
+    font-size: 56px;
+    margin-bottom: 18px;
+    opacity: 0.4;
+}
+
+.adm-empty h3 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--black);
+    margin-bottom: 10px;
+    letter-spacing: -0.018em;
+}
+
+.adm-empty p {
+    font-family: var(--f-sans);
+    color: var(--text-soft);
+    font-size: 14px;
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.adm-loading {
+    padding: 80px 24px;
+    text-align: center;
+    font-family: var(--f-sans);
+    color: var(--text-soft);
+    font-size: 14px;
+}
+
+.is-hidden { display: none !important; }
+
+/* === Detail Drawer === */
+.adm-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    display: none;
+}
+
+.adm-drawer.is-open { display: block; }
+
+.adm-drawer-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 26, 26, 0.4);
+}
+
+.adm-drawer-panel {
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 100%;
+    max-width: 520px;
+    background: var(--paper);
+    overflow-y: auto;
+    box-shadow: -16px 0 40px rgba(0, 0, 0, 0.18);
+    animation: slideInRight 0.3s ease;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(40px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.adm-drawer-head {
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--gray-line);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.adm-drawer-head h3 {
+    font-family: var(--f-sans);
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--paper);
+    letter-spacing: -0.018em;
+    margin-bottom: 4px;
+}
+
+.adm-drawer-head .id {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: rgba(252, 250, 246, 0.6);
+    letter-spacing: 0.06em;
+}
+
+.adm-drawer-head button {
+    background: rgba(252, 250, 246, 0.08);
+    color: var(--paper);
+    border: 1px solid rgba(252, 250, 246, 0.2);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.adm-drawer-head button:hover {
+    background: rgba(252, 250, 246, 0.16);
+    transform: rotate(90deg);
+}
+
+.adm-drawer-body {
+    padding: 28px;
+}
+
+.adm-drawer-body dl {
+    margin: 0;
+}
+
+.adm-drawer-body dt {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    font-weight: 600;
+    margin: 18px 0 6px;
+}
+
+.adm-drawer-body dt:first-child { margin-top: 0; }
+
+.adm-drawer-body dd {
+    font-family: var(--f-sans);
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.65;
+    margin: 0 0 12px;
+    padding: 0 0 12px;
+    border-bottom: 1px dashed var(--gray-line);
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.adm-drawer-body dd:last-child { border-bottom: none; }
+
+.adm-drawer-body .copy-btn {
+    background: var(--gray-soft);
+    border: 1px solid var(--gray-line);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    cursor: pointer;
+    margin-left: 8px;
+    color: var(--text-soft);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.adm-drawer-body .copy-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+}
+
+@media (max-width: 768px) {
+    .adm-table {
+        font-size: 12px;
+    }
+    .adm-table th, .adm-table td {
+        padding: 10px 8px;
+    }
+    .adm-table .msg-cell { max-width: 160px; }
+    .adm-toolbar { padding: 14px 16px; }
+    .adm-main { padding: 0 14px 60px; }
+    .adm-top { padding: 14px 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="adm-shell" id="shell">
+
+  <!-- ===== LOGIN VIEW ===== -->
+  <section class="adm-login" id="loginView">
+    <div class="adm-login-card">
+      <div class="logo-row">
+        <img src="assets/logo.png" alt="The Culture N">
+        <span>The Culture <strong style="color:var(--gold-deep)">N</strong> Admin</span>
+      </div>
+      <h1>관리자 로그인</h1>
+      <p>견적·상담 신청 데이터를 조회하려면 관리자 토큰을 입력하세요.</p>
+
+      <form id="loginForm">
+        <label for="adminToken">Admin Token</label>
+        <input type="password" id="adminToken" placeholder="관리자 토큰 입력" autocomplete="current-password" required>
+        <p class="err" id="loginErr"></p>
+        <button type="submit">로그인</button>
+      </form>
+
+      <div class="hint">
+        <strong>처음 사용하시나요?</strong><br>
+        Vercel 대시보드 → Project Settings → Environment Variables에서 <code>ADMIN_TOKEN</code>을 설정하고 같은 값을 여기에 입력하세요.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DASHBOARD VIEW ===== -->
+  <section id="dashView" class="is-hidden">
+
+    <div class="adm-top">
+      <div class="brand">
+        <img src="assets/logo.png" alt="The Culture N">
+        <span>The Culture <strong style="color:var(--gold-bright)">N</strong></span>
+        <small>ADMIN DASHBOARD</small>
+      </div>
+      <div class="adm-top-actions">
+        <span class="storage-tag" id="storageTag"></span>
+        <button id="refreshBtn">↻ 새로고침</button>
+        <button id="exportBtn">⤓ CSV 내보내기</button>
+        <button id="logoutBtn" class="danger">로그아웃</button>
+      </div>
+    </div>
+
+    <div class="adm-stats">
+      <div class="adm-stat"><div class="num" id="statTotal">0</div><div class="lbl">Total</div></div>
+      <div class="adm-stat"><div class="num" id="statToday">0</div><div class="lbl">Today</div></div>
+      <div class="adm-stat"><div class="num" id="statWeek">0</div><div class="lbl">This Week</div></div>
+      <div class="adm-stat"><div class="num" id="statMonth">0</div><div class="lbl">This Month</div></div>
+    </div>
+
+    <div class="adm-toolbar">
+      <input type="text" id="searchInput" placeholder="이름·전화·이메일·메시지로 검색…">
+      <select id="filterField">
+        <option value="">전체 분야</option>
+        <option value="의료계">의료계</option>
+        <option value="법조계">법조계</option>
+        <option value="세무·회계">세무·회계</option>
+        <option value="학원·교육">학원·교육</option>
+        <option value="부모 자서전">부모 자서전</option>
+        <option value="기타">기타</option>
+      </select>
+      <select id="filterSource">
+        <option value="">전체 출처</option>
+        <option value="professional-landing">Pro Memoir 랜딩</option>
+        <option value="contact">Contact</option>
+        <option value="publishing">Publishing</option>
+      </select>
+      <span class="count" id="filterCount">0건</span>
+    </div>
+
+    <div class="adm-main">
+      <div class="adm-table-wrap">
+        <div id="loadingBox" class="adm-loading">데이터 불러오는 중…</div>
+
+        <div id="emptyBox" class="adm-empty is-hidden">
+          <div class="icon">📭</div>
+          <h3>아직 접수된 신청이 없습니다.</h3>
+          <p>홈페이지를 통해 첫 견적·상담 신청이 들어오면 이곳에 표시됩니다.<br>SNS 마케팅을 시작하면 트래픽과 함께 리드가 쌓입니다.</p>
+        </div>
+
+        <table class="adm-table is-hidden" id="dataTable">
+          <thead>
+            <tr>
+              <th>접수 일시</th>
+              <th>이름</th>
+              <th>연락처</th>
+              <th>이메일</th>
+              <th>분야</th>
+              <th>희망 시기</th>
+              <th>메시지</th>
+              <th>출처</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== DETAIL DRAWER ===== -->
+  <div class="adm-drawer" id="drawer">
+    <div class="adm-drawer-bg" data-close></div>
+    <div class="adm-drawer-panel">
+      <div class="adm-drawer-head">
+        <div>
+          <h3 id="drawerName">—</h3>
+          <div class="id" id="drawerId">—</div>
+        </div>
+        <button data-close aria-label="닫기">×</button>
+      </div>
+      <div class="adm-drawer-body" id="drawerBody"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const TOKEN_KEY = 'tcn_admin_token';
+  let allSubmissions = [];
+
+  const els = {
+    loginView: document.getElementById('loginView'),
+    dashView: document.getElementById('dashView'),
+    loginForm: document.getElementById('loginForm'),
+    adminToken: document.getElementById('adminToken'),
+    loginErr: document.getElementById('loginErr'),
+    refreshBtn: document.getElementById('refreshBtn'),
+    logoutBtn: document.getElementById('logoutBtn'),
+    exportBtn: document.getElementById('exportBtn'),
+    storageTag: document.getElementById('storageTag'),
+    statTotal: document.getElementById('statTotal'),
+    statToday: document.getElementById('statToday'),
+    statWeek: document.getElementById('statWeek'),
+    statMonth: document.getElementById('statMonth'),
+    searchInput: document.getElementById('searchInput'),
+    filterField: document.getElementById('filterField'),
+    filterSource: document.getElementById('filterSource'),
+    filterCount: document.getElementById('filterCount'),
+    loadingBox: document.getElementById('loadingBox'),
+    emptyBox: document.getElementById('emptyBox'),
+    dataTable: document.getElementById('dataTable'),
+    tableBody: document.getElementById('tableBody'),
+    drawer: document.getElementById('drawer'),
+    drawerName: document.getElementById('drawerName'),
+    drawerId: document.getElementById('drawerId'),
+    drawerBody: document.getElementById('drawerBody'),
+  };
+
+  function getToken() {
+    return sessionStorage.getItem(TOKEN_KEY) || '';
+  }
+
+  function setToken(t) {
+    if (t) sessionStorage.setItem(TOKEN_KEY, t);
+    else sessionStorage.removeItem(TOKEN_KEY);
+  }
+
+  function show(view) {
+    els.loginView.classList.toggle('is-hidden', view !== 'login');
+    els.dashView.classList.toggle('is-hidden', view !== 'dash');
+  }
+
+  async function loadSubmissions() {
+    const token = getToken();
+    if (!token) {
+      show('login');
+      return;
+    }
+
+    els.loadingBox.classList.remove('is-hidden');
+    els.dataTable.classList.add('is-hidden');
+    els.emptyBox.classList.add('is-hidden');
+
+    try {
+      const res = await fetch('/api/admin/list?limit=500', {
+        headers: { 'x-admin-token': token },
+      });
+
+      if (res.status === 401) {
+        setToken('');
+        show('login');
+        els.loginErr.textContent = '인증 실패. 토큰을 확인해주세요.';
+        els.loginErr.classList.add('is-show');
+        return;
+      }
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || `HTTP ${res.status}`);
+      }
+
+      const data = await res.json();
+      allSubmissions = data.submissions || [];
+
+      els.storageTag.textContent = `Storage: ${data.storage || 'unknown'}`;
+      els.loadingBox.classList.add('is-hidden');
+
+      renderStats();
+      renderTable();
+    } catch (err) {
+      console.error(err);
+      els.loadingBox.textContent = `데이터 로드 실패: ${err.message}`;
+    }
+  }
+
+  function renderStats() {
+    const now = Date.now();
+    const today = new Date(); today.setHours(0,0,0,0);
+    const weekAgo = now - 7 * 86400_000;
+    const monthAgo = now - 30 * 86400_000;
+
+    let t = 0, w = 0, m = 0;
+    allSubmissions.forEach(s => {
+      const ts = new Date(s.submitted_at || 0).getTime();
+      if (ts >= today.getTime()) t++;
+      if (ts >= weekAgo) w++;
+      if (ts >= monthAgo) m++;
+    });
+
+    els.statTotal.textContent = allSubmissions.length;
+    els.statToday.textContent = t;
+    els.statWeek.textContent = w;
+    els.statMonth.textContent = m;
+  }
+
+  function escapeHtml(s) {
+    if (s == null) return '';
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function fmtDate(iso) {
+    if (!iso) return '—';
+    try {
+      const d = new Date(iso);
+      const pad = (n) => String(n).padStart(2, '0');
+      return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    } catch (e) { return iso; }
+  }
+
+  function getFiltered() {
+    const q = (els.searchInput.value || '').trim().toLowerCase();
+    const f = els.filterField.value;
+    const sr = els.filterSource.value;
+
+    return allSubmissions.filter(s => {
+      if (f && s.field !== f) return false;
+      if (sr && s.source !== sr) return false;
+      if (q) {
+        const blob = JSON.stringify(s).toLowerCase();
+        if (!blob.includes(q)) return false;
+      }
+      return true;
+    });
+  }
+
+  function renderTable() {
+    const list = getFiltered();
+    els.filterCount.textContent = `${list.length}건 / 총 ${allSubmissions.length}건`;
+
+    if (allSubmissions.length === 0) {
+      els.emptyBox.classList.remove('is-hidden');
+      els.dataTable.classList.add('is-hidden');
+      return;
+    }
+
+    els.emptyBox.classList.add('is-hidden');
+    els.dataTable.classList.remove('is-hidden');
+
+    els.tableBody.innerHTML = list.map(s => `
+      <tr data-id="${escapeHtml(s.id)}">
+        <td class="submitted-at">${escapeHtml(fmtDate(s.submitted_at))}</td>
+        <td class="name">${escapeHtml(s.name || '-')}</td>
+        <td><a href="tel:${escapeHtml(s.phone || '')}">${escapeHtml(s.phone || '-')}</a></td>
+        <td>${s.email ? `<a href="mailto:${escapeHtml(s.email)}">${escapeHtml(s.email)}</a>` : '-'}</td>
+        <td>${s.field ? `<span class="field-tag">${escapeHtml(s.field)}</span>` : '-'}</td>
+        <td>${escapeHtml(s.timing || '-')}</td>
+        <td class="msg-cell">${escapeHtml(s.message || '').slice(0, 100)}${s.message && s.message.length > 100 ? '…' : ''}</td>
+        <td>${s.source ? `<span class="source-tag">${escapeHtml(s.source)}</span>` : '-'}</td>
+        <td class="row-actions">
+          <button data-action="view">상세</button>
+        </td>
+      </tr>
+    `).join('');
+
+    els.tableBody.querySelectorAll('button[data-action="view"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.closest('tr').dataset.id;
+        const sub = allSubmissions.find(s => s.id === id);
+        if (sub) openDrawer(sub);
+      });
+    });
+  }
+
+  function openDrawer(sub) {
+    els.drawerName.textContent = sub.name || '—';
+    els.drawerId.textContent = sub.id || '—';
+
+    const fields = [
+      ['접수 일시', fmtDate(sub.submitted_at)],
+      ['이름', sub.name],
+      ['연락처', sub.phone],
+      ['이메일', sub.email],
+      ['분야', sub.field],
+      ['희망 출간 시기', sub.timing],
+      ['메시지', sub.message],
+      ['출처 (source)', sub.source],
+      ['Page URL', sub.page_url],
+      ['Referer', sub.referer],
+      ['IP', sub.ip],
+      ['User Agent', sub.user_agent],
+    ];
+
+    els.drawerBody.innerHTML = '<dl>' + fields.map(([k, v]) => {
+      if (!v) return '';
+      const safe = escapeHtml(v);
+      return `<dt>${escapeHtml(k)} <button class="copy-btn" data-copy="${safe.replace(/"/g, '&quot;')}">copy</button></dt><dd>${safe}</dd>`;
+    }).filter(Boolean).join('') + '</dl>';
+
+    els.drawer.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+
+    els.drawerBody.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(btn.dataset.copy);
+          btn.textContent = 'copied!';
+          setTimeout(() => { btn.textContent = 'copy'; }, 1500);
+        } catch (e) {}
+      });
+    });
+  }
+
+  function closeDrawer() {
+    els.drawer.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  els.drawer.querySelectorAll('[data-close]').forEach(el => {
+    el.addEventListener('click', closeDrawer);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && els.drawer.classList.contains('is-open')) {
+      closeDrawer();
+    }
+  });
+
+  // ===== Login =====
+  els.loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    els.loginErr.classList.remove('is-show');
+    const t = els.adminToken.value.trim();
+    if (!t) return;
+
+    // Test token by hitting list endpoint
+    try {
+      const res = await fetch('/api/admin/list?limit=1', {
+        headers: { 'x-admin-token': t },
+      });
+      if (res.status === 401) {
+        els.loginErr.textContent = '잘못된 토큰입니다.';
+        els.loginErr.classList.add('is-show');
+        return;
+      }
+      if (!res.ok) {
+        const d = await res.json().catch(() => ({}));
+        if (d.error === 'admin_token_not_configured') {
+          els.loginErr.textContent = 'Vercel ADMIN_TOKEN 환경변수가 설정되지 않았습니다.';
+        } else {
+          els.loginErr.textContent = `서버 오류: ${d.error || res.status}`;
+        }
+        els.loginErr.classList.add('is-show');
+        return;
+      }
+      setToken(t);
+      show('dash');
+      loadSubmissions();
+    } catch (err) {
+      els.loginErr.textContent = `연결 실패: ${err.message}`;
+      els.loginErr.classList.add('is-show');
+    }
+  });
+
+  // ===== Dashboard buttons =====
+  els.refreshBtn.addEventListener('click', loadSubmissions);
+
+  els.logoutBtn.addEventListener('click', () => {
+    setToken('');
+    allSubmissions = [];
+    show('login');
+    els.adminToken.value = '';
+  });
+
+  els.exportBtn.addEventListener('click', () => {
+    const list = getFiltered();
+    if (!list.length) { alert('내보낼 데이터가 없습니다.'); return; }
+
+    const headers = ['submitted_at', 'name', 'phone', 'email', 'field', 'timing', 'message', 'source', 'page_url', 'ip', 'id'];
+    const escapeCsv = (v) => {
+      if (v == null) return '';
+      const s = String(v).replace(/"/g, '""');
+      return `"${s}"`;
+    };
+    const rows = [headers.join(',')];
+    list.forEach(s => {
+      rows.push(headers.map(h => escapeCsv(s[h])).join(','));
+    });
+    const csv = '﻿' + rows.join('\n');  // BOM for Excel UTF-8
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `tcn-submissions-${new Date().toISOString().slice(0,10)}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  // Filters
+  els.searchInput.addEventListener('input', renderTable);
+  els.filterField.addEventListener('change', renderTable);
+  els.filterSource.addEventListener('change', renderTable);
+
+  // Init
+  if (getToken()) {
+    show('dash');
+    loadSubmissions();
+  } else {
+    show('login');
+  }
+})();
+</script>
+</body>
+</html>

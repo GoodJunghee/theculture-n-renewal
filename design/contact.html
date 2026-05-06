@@ -8,6 +8,7 @@
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/sub.css">
+<link rel="stylesheet" href="css/forms.css">
 </head>
 <body>
 
@@ -127,33 +128,34 @@
                 <h2>견적 & 상담 신청</h2>
                 <p class="sub">필요한 정보를 입력해주시면 담당자가 24시간 내에 연락드립니다.</p>
 
-                <form id="contactForm" onsubmit="event.preventDefault(); submitForm();">
+                <form id="contactForm" class="tcn-form" data-form="lead" data-source="contact" novalidate>
+                    <input type="hidden" name="form_subject" value="[더컬쳐앤] 견적·상담 신청">
 
                     <div class="form-group full">
                         <label>관심있는 서비스 <span class="req">*</span> <small style="font-family: var(--f-sans); color: var(--gray); font-weight: 400; text-transform: none; letter-spacing: 0;">(중복 선택)</small></label>
                         <div class="svc-checks">
                             <div class="svc-check">
-                                <input type="checkbox" id="svc1" value="publishing">
+                                <input type="checkbox" id="svc1" name="services" value="publishing">
                                 <label for="svc1">📚 도서출판</label>
                             </div>
                             <div class="svc-check">
-                                <input type="checkbox" id="svc2" value="music">
+                                <input type="checkbox" id="svc2" name="services" value="music">
                                 <label for="svc2">🎵 앨범·공연</label>
                             </div>
                             <div class="svc-check">
-                                <input type="checkbox" id="svc3" value="lounge">
+                                <input type="checkbox" id="svc3" name="services" value="lounge">
                                 <label for="svc3">🏛 라운지 대관</label>
                             </div>
                             <div class="svc-check">
-                                <input type="checkbox" id="svc4" value="artist">
+                                <input type="checkbox" id="svc4" name="services" value="artist">
                                 <label for="svc4">🎤 아티스트</label>
                             </div>
                             <div class="svc-check">
-                                <input type="checkbox" id="svc5" value="wellness">
+                                <input type="checkbox" id="svc5" name="services" value="wellness">
                                 <label for="svc5">🌿 의료관광</label>
                             </div>
                             <div class="svc-check">
-                                <input type="checkbox" id="svc6" value="jewelry">
+                                <input type="checkbox" id="svc6" name="services" value="jewelry">
                                 <label for="svc6">💎 주얼리</label>
                             </div>
                         </div>
@@ -162,29 +164,29 @@
                     <div class="form-grid-2">
                         <div class="form-group">
                             <label for="name">성함 <span class="req">*</span></label>
-                            <input type="text" id="name" class="form-input" placeholder="홍길동" required>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="홍길동" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">연락처 <span class="req">*</span></label>
-                            <input type="tel" id="phone" class="form-input" placeholder="010-0000-0000" required>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="010-0000-0000" required>
                         </div>
                     </div>
 
                     <div class="form-grid-2">
                         <div class="form-group">
                             <label for="email">이메일</label>
-                            <input type="email" id="email" class="form-input" placeholder="example@email.com">
+                            <input type="email" id="email" name="email" class="form-input" placeholder="example@email.com">
                         </div>
                         <div class="form-group">
                             <label for="company">소속 / 직책</label>
-                            <input type="text" id="company" class="form-input" placeholder="회사명 · 직책 (선택)">
+                            <input type="text" id="company" name="company" class="form-input" placeholder="회사명 · 직책 (선택)">
                         </div>
                     </div>
 
                     <div class="form-grid-2">
                         <div class="form-group">
                             <label for="budget">예산 규모</label>
-                            <select id="budget">
+                            <select id="budget" name="budget">
                                 <option value="">선택해주세요</option>
                                 <option>~ 500만원</option>
                                 <option>500만원 ~ 1,000만원</option>
@@ -195,7 +197,7 @@
                         </div>
                         <div class="form-group">
                             <label for="schedule">희망 시기</label>
-                            <select id="schedule">
+                            <select id="schedule" name="timing">
                                 <option value="">선택해주세요</option>
                                 <option>1개월 이내</option>
                                 <option>1~3개월</option>
@@ -208,13 +210,13 @@
 
                     <div class="form-group full">
                         <label for="message">문의 내용 <span class="req">*</span></label>
-                        <textarea id="message" placeholder="원하시는 서비스 내용, 일정, 규모, 요구사항 등을 자유롭게 작성해주세요." required></textarea>
+                        <textarea id="message" name="message" placeholder="원하시는 서비스 내용, 일정, 규모, 요구사항 등을 자유롭게 작성해주세요." required></textarea>
                     </div>
 
                     <div class="form-group full">
-                        <label class="check-line">
-                            <input type="checkbox" required>
-                            <span>개인정보 수집·이용에 동의합니다. <a href="#" style="color: var(--gold-deep); text-decoration: underline;">자세히 보기</a></span>
+                        <label class="check-line" for="agree-contact">
+                            <input type="checkbox" id="agree-contact" name="privacy_agree" required>
+                            <span>개인정보 수집·이용에 동의합니다. <a href="#privacy" data-privacy-link data-privacy-target="#agree-contact" style="color: var(--gold-deep); text-decoration: underline;">자세히 보기</a></span>
                         </label>
                     </div>
 
@@ -307,36 +309,56 @@
                     <img src="assets/logo.png" alt="The Culture N">
                     <span>The Culture <strong style="color:var(--gold-bright)">N</strong></span>
                 </a>
-                <p class="footer-tagline">LSJ Company · 주식회사 더컬쳐앤<br>출판 · 공연 · 문화공간을 잇는<br>All in One 컬쳐 컴퍼니.</p>
+                <p class="footer-tagline">
+                    LSJ Company · 주식회사 더컬쳐앤<br>
+                    출판 · 공연 · 문화공간을 잇는<br>
+                    All in One 컬쳐 컴퍼니.
+                </p>
                 <div class="footer-contact">02-734-3827</div>
                 <div class="footer-email">dreamwithessmarketing@gmail.com</div>
             </div>
+
             <div class="footer-col">
                 <h4>Services</h4>
                 <ul>
                     <li><a href="publishing.html">도서출판</a></li>
-                    <li><a href="lounge.html">라운지</a></li>
-                    <li><a href="artists.html">Artists</a></li>
+                    <li><a href="professional.html">Pro Memoir</a></li>
+                    <li><a href="artists.html#music">앨범·공연</a></li>
+                    <li><a href="lounge.html">라운지 대관</a></li>
+                    <li><a href="contact.html?service=wellness">의료관광</a></li>
                 </ul>
             </div>
+
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul>
                     <li><a href="about.html">CEO 이서진</a></li>
+                    <li><a href="about.html#team">Team</a></li>
+                    <li><a href="artists.html">Artists</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                 </ul>
             </div>
+
             <div class="footer-col">
                 <h4>Connect</h4>
                 <ul>
-                    <li><a href="https://instagram.com/the_culture_n_lounge">Instagram</a></li>
+                    <li><a href="https://www.instagram.com/the_culture_n/">@the_culture_n</a></li>
+                    <li><a href="https://www.instagram.com/seojin_ceo/">@seojin_ceo</a></li>
+                    <li><a href="https://www.youtube.com/@%EC%B1%85%EC%93%B0%EB%8A%94%EC%84%9C%EC%A7%84">YouTube · 책쓰는 서진</a></li>
+                    <li><a href="http://pf.kakao.com/_QkZhd">KakaoTalk</a></li>
+                    <li><a href="mailto:1994seojin@gmail.com">1994seojin@gmail.com</a></li>
                 </ul>
             </div>
         </div>
+
         <div class="footer-bottom">
-            <p>© 2026 LSJ Company. All rights reserved.</p>
+            <p>© 2026 LSJ Company · 주식회사 더컬쳐앤. All rights reserved.</p>
             <div class="social-row">
-                <a href="#">IG</a><a href="#">YT</a><a href="#">BL</a><a href="#">KK</a>
+                <a href="https://www.instagram.com/the_culture_n/" aria-label="Instagram">IG</a>
+                <a href="https://www.youtube.com/@%EC%B1%85%EC%93%B0%EB%8A%94%EC%84%9C%EC%A7%84" aria-label="YouTube">YT</a>
+                <a href="https://blog.naver.com/1994seojin" aria-label="Blog">BL</a>
+                <a href="http://pf.kakao.com/_QkZhd" aria-label="Kakao">KK</a>
+                <a href="mailto:1994seojin@gmail.com" aria-label="Email">EM</a>
             </div>
         </div>
     </div>
@@ -352,6 +374,7 @@
 <a href="http://pf.kakao.com/_QkZhd" class="fab">Kakao</a>
 
 <script src="js/main.js"></script>
+<script src="js/forms.js"></script>
 <script>
 // URL Param 자동 체크
 const params = new URLSearchParams(window.location.search);

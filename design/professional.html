@@ -21,6 +21,7 @@
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/sub.css">
+<link rel="stylesheet" href="css/forms.css">
 <style>
 /* ========================================================
    Landing Page · 전문직 자서전 출판
@@ -1606,15 +1607,15 @@ body { background: var(--paper); }
                 <a href="http://pf.kakao.com/_QkZhd" class="kakao-cta">💬 카카오톡으로 바로 상담</a>
             </aside>
 
-            <form class="lp-lead-form reveal"
-                  action="https://formspree.io/f/manvjqnv"
-                  method="POST"
+            <form class="lp-lead-form tcn-form reveal"
+                  data-form="lead"
+                  data-source="professional-landing"
                   novalidate>
                 <span class="eyebrow">— Send Inquiry</span>
                 <h2>무료 출판 상담 신청</h2>
                 <p class="sub">간단한 정보만 남겨주시면 30분 내 1:1 회신드립니다. 모든 정보는 상담 목적 외 사용되지 않습니다.</p>
 
-                <input type="hidden" name="_subject" value="[더컬쳐앤] 전문직 자서전 출판 상담 문의">
+                <input type="hidden" name="form_subject" value="[더컬쳐앤] 전문직 자서전 출판 상담 문의">
                 <input type="hidden" name="source" value="professional-landing">
 
                 <div class="lp-form-row split">
@@ -1671,9 +1672,9 @@ body { background: var(--paper); }
                     <textarea name="message" placeholder="간단한 책의 컨셉·목적·독자층 등을 자유롭게 적어주세요. 예) 30년 임상 경험을 환자들에게 풀어주는 건강 가이드북. 출간 후 강연·유튜브와 연계 희망."></textarea>
                 </div>
 
-                <label class="lp-form-agree">
-                    <input type="checkbox" name="privacy_agree" required>
-                    <span>개인정보 수집·이용 및 마케팅 정보 수신에 동의합니다. <a href="#">자세히 보기</a></span>
+                <label class="lp-form-agree" for="agree-pro">
+                    <input type="checkbox" name="privacy_agree" id="agree-pro" required>
+                    <span>개인정보 수집·이용 및 마케팅 정보 수신에 동의합니다. <a href="#privacy" data-privacy-link data-privacy-target="#agree-pro">자세히 보기</a></span>
                 </label>
 
                 <button type="submit" class="lp-submit">무료 상담 신청하기 →</button>
@@ -1758,5 +1759,6 @@ body { background: var(--paper); }
 <a href="http://pf.kakao.com/_QkZhd" class="fab" aria-label="카카오톡 문의">Kakao</a>
 
 <script src="js/main.js"></script>
+<script src="js/forms.js"></script>
 </body>
 </html>
