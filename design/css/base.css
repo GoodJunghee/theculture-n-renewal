@@ -583,7 +583,7 @@ input, textarea, select {
     border-color: var(--gold-bright);
 }
 
-/* === Floating Kakao === */
+/* === Floating Action Buttons (Stacked) === */
 .fab {
     position: fixed;
     bottom: 32px;
@@ -607,6 +607,46 @@ input, textarea, select {
 .fab:hover {
     transform: translateY(-4px) scale(1.05);
     box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+}
+
+/* Instagram FAB · stacked above Kakao */
+.fab-ig {
+    position: fixed;
+    bottom: 104px;            /* 32 (kakao bottom) + 60 (kakao height) + 12 gap */
+    right: 32px;
+    z-index: 900;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 110%,
+        #FFD86F 0%,
+        #FEC265 12%,
+        #FC5245 30%,
+        #CC2366 50%,
+        #5851DB 80%,
+        #515BD4 100%);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 14px 36px rgba(220, 39, 67, 0.35);
+    transition: all var(--t-fast) var(--ease);
+    text-decoration: none;
+}
+
+.fab-ig svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--white);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.fab-ig:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 20px 48px rgba(220, 39, 67, 0.45);
 }
 
 /* === Marquee === */
@@ -707,4 +747,6 @@ input, textarea, select {
     }
 
     .fab { width: 56px; height: 56px; bottom: 20px; right: 20px; }
+    .fab-ig { width: 56px; height: 56px; bottom: 86px; right: 20px; }
+    .fab-ig svg { width: 24px; height: 24px; }
 }
