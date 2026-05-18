@@ -1,0 +1,32 @@
+# The Culture N robots.txt
+# https://theculturen.com
+
+User-agent: *
+Allow: /
+
+# 관리자 페이지 차단
+Disallow: /admin
+Disallow: /admin.html
+Disallow: /admin/
+
+# API 차단
+Disallow: /api/
+
+# 검색엔진 봇 명시 허용 (한국 + 글로벌)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: NaverBot
+Allow: /
+
+User-agent: Daumoa
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+# Sitemap 위치
+Sitemap: https://theculturen.com/sitemap.xml
